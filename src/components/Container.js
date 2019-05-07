@@ -12,40 +12,25 @@ class Container extends React.Component {
 
     findMatch(a, b) {
         let foundMatches = [];
+        let distinctValues;
         for (let i = 0; i < a.length; i++) {
             for (let y = 0; y < b.length; y++) {
                 if (a[i] === b[y]) {
                     foundMatches.push(a[i]);
+                    distinctValues = [...new Set(foundMatches)]
                 }
             }
         }
-        return foundMatches;
+        return distinctValues;
     }
 
     findIntersection(a, b) {
         let intersect = [];
-        while(a.length > 0 && b.length > 0) {
-            // if(a[0] < b[0]) {
-            //     a.shift()
-            // } else if(a[0] > b[0]) {
-            //     b.shift();
-            // } else {
-            //     intersect.push(a.shift())
-            //     b.shift();
-            // }
-
-
-            for (let i = 0; i < a.length; i++) {
-                for (let y = 0; y < b.length; y++) {
-                    if(a[i] < b[y]) {
-                        a.shift();
-                    } else if(a[i] > b[y]) {
-                        b.shift();
-                        intersect.push('0');
-                    } else {
-                        intersect.push(a.shift());
-                    }
-                }
+        for (var i = 0; i < Math.min(a.length, b.length); i++) {
+            if (a[i] === b[i]) {
+                intersect[i] = a[i];
+            } else {
+                intersect[i] = 0;
             }
         }
         return intersect;
@@ -60,11 +45,11 @@ class Container extends React.Component {
         // let generatedMatches = this.state.generatedMatches;
         // console.log(selectedColorValues);
         // console.log(generatedMatches);
-        let a = [8, 8, 8, 9]
-        let b = [6, 7, 7, 4]
+        let a = [8, 8, 8, 8];
+        let b = [6, 8, 7, 8];
         console.log(this.findIntersection(a, b));
         // console.log(this.findMatch(b, a));
-        // console.log(this.findMatch(generatedMatches, selectedColorValues));
+        // console.log(this.findMatch(selectedColorValues, generatedMatches));
     }
 
     render() {
