@@ -1,5 +1,6 @@
 import React from 'react';
 import DecodeRow from './DecodeRow';
+import { SidePegs } from './SidebarCover';
 
 class Container extends React.Component {
     constructor(props) {
@@ -58,6 +59,7 @@ class Container extends React.Component {
                 <div className="row">
                     <div className="col-xs-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
                         <DecodeRow />
+                        <SidePegs />
                     </div>
                 </div>
             </div>

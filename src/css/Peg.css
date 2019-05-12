@@ -1,8 +1,39 @@
 .emptyPeg {
     margin: 5px;
     display: inline-block;
-    border: 1px solid rgb(165, 165, 165);
+    border: 2px solid rgb(165, 165, 165);
     border-radius: 50%;
-    width: 33px;
-    height: 33px;
+    width: 42px;
+    height: 42px;
+}
+
+.emptyPeg:hover {
+    cursor: pointer;
+}
+.colorNull {
+    background-color: #ffffff;
+}
+.color0 {
+    background-color: #388e3c;
+    border-color: #388e3c;
+}
+.color1 {
+    background-color: #fbc02d;
+    border-color: #fbc02d;
+}
+.color2 {
+    background-color: #d81b60;
+    border-color: #d81b60;
+}
+.color3 {
+    background-color: #5e35b1;
+    border-color: #5e35b1;
+}
+.color4 {
+    background-color: #e64a19;
+    border-color: #e64a19;
+}
+.color5 {
+    background-color: #1976d2;
+    border-color: #1976d2;
 }
