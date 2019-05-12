@@ -1,5 +1,5 @@
 import React from 'react';
-
+import DecodeRow from './DecodeRow';
 
 class Container extends React.Component {
     constructor(props) {
@@ -10,19 +10,19 @@ class Container extends React.Component {
         }
     }
 
-    findMatch(a, b) {
-        let foundMatches = [];
-        let distinctValues;
-        for (let i = 0; i < a.length; i++) {
-            for (let y = 0; y < b.length; y++) {
-                if (a[i] === b[y]) {
-                    foundMatches.push(a[i]);
-                    distinctValues = [...new Set(foundMatches)]
-                }
-            }
-        }
-        return distinctValues;
-    }
+    // findMatch(a, b) {
+    //     let foundMatches = [];
+    //     let distinctValues;
+    //     for (let i = 0; i < a.length; i++) {
+    //         for (let y = 0; y < b.length; y++) {
+    //             if (a[i] === b[y]) {
+    //                 foundMatches.push(a[i]);
+    //                 distinctValues = [...new Set(foundMatches)]
+    //             }
+    //         }
+    //     }
+    //     return distinctValues;
+    // }
 
     findIntersection(a, b) {
         let intersect = [];
@@ -54,7 +54,13 @@ class Container extends React.Component {
 
     render() {
         return (
-            <div>this os a xjew</div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-xs-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
+                        <DecodeRow />
+                    </div>
+                </div>
+            </div>
         )
     }
 }

@@ -1,0 +1,8 @@
+.emptyPeg {
+    margin: 5px;
+    display: inline-block;
+    border: 1px solid rgb(165, 165, 165);
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+}
