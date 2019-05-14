@@ -7,8 +7,18 @@ class Container extends React.Component {
         super(props)
         this.state = {
             generatedMatches: [],
-            showVal: false
+            showVal: false,
+            toInjectColor: '',
+            toInjectValue: ''
         }
+        this.updateInjection = this.updateInjection.bind(this);
+    }
+
+    updateInjection(value, color) {
+        this.setState({
+            toInjectColor: color,
+            toInjectValue: value
+        })
     }
 
     // findMatch(a, b) {
@@ -48,7 +58,8 @@ class Container extends React.Component {
         // console.log(generatedMatches);
         let a = [8, 8, 8, 8];
         let b = [6, 8, 7, 8];
-        console.log(this.findIntersection(a, b));
+        this.findIntersection(a, b);
+        // console.log(this.findIntersection(a, b));
         // console.log(this.findMatch(b, a));
         // console.log(this.findMatch(selectedColorValues, generatedMatches));
     }
@@ -59,7 +70,8 @@ class Container extends React.Component {
                 <div className="row">
                     <div className="col-xs-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
                         <DecodeRow />
-                        <SidePegs />
+                        <p>Parent: {this.state.toInjectColor}, {this.state.toInjectValue}</p>
+                        <SidePegs updatetoinject={this.updateInjection}/>
                     </div>
                 </div>
             </div>
