@@ -69,8 +69,8 @@ class Container extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col-xs-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
-                        <DecodeRow />
-                        <p>Parent: {this.state.toInjectColor}, {this.state.toInjectValue}</p>
+                        <DecodeRow injectedValue={this.state.toInjectValue} injectedColor={this.state.toInjectColor}/>
+                        <p>Parent: color:{this.state.toInjectColor}, value: {this.state.toInjectValue}</p>
                         <SidePegs updatetoinject={this.updateInjection}/>
                     </div>
                 </div>

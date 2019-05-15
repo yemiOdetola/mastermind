@@ -2,7 +2,6 @@ import React from 'react';
 
 // A single side-peg
 export class EachSidePeg extends React.Component {
-    // const EachSidePeg = (props) => {
     constructor(props) {
         super(props)
         this.copyColorProperty = this.copyColorProperty.bind(this);
@@ -15,18 +14,15 @@ export class EachSidePeg extends React.Component {
     }
 
     copyColorProperty() {
-        // console.log('props on grand', this.props);
         let newObj = {
             copiedColor: this.props.indexcolor,
             copiedValue: this.props.indexvalue
         }
         this.setState(Object.assign(this.state.currentPegProperty, newObj));
-        // console.log('new state', this.state.currentPegProperty);
         this.props.updateinjector(
-            this.state.currentPegProperty.copiedColor,
-            this.state.currentPegProperty.copiedValue
+            this.state.currentPegProperty.copiedValue,
+            this.state.currentPegProperty.copiedColor
         );
-        // console.log(this.props);
     }
     render() {
         return (
@@ -37,7 +33,6 @@ export class EachSidePeg extends React.Component {
             </div>
         );
     }
-    // }
 }
 
 // The side-peg group
@@ -59,7 +54,7 @@ export class SidePegs extends React.Component {
     render() {
         let pegData = this.state.pegsProperties;
         let sidePegsArray = [];
-        console.log(this.props);
+        // console.log(this.props);
         for (let i = 0; i < pegData.length; i++) {
             sidePegsArray.push(
                 <EachSidePeg
@@ -67,7 +62,6 @@ export class SidePegs extends React.Component {
                     indexvalue={pegData[i].indexValue}
                     indexcolor={pegData[i].indexColor}
                     updateinjector={this.props.updatetoinject}
-                // property={this.props.copiedPegColor}
                 />
             )
         }
