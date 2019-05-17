@@ -14,7 +14,11 @@ class DecodeRow extends React.Component {
         let pegsArr = ['one', 'two', 'three', 'four'];
         let pegsColumn = [];
         for ( let index = 0; index < pegsArr.length; index++ ) {
-           pegsColumn.push(<Peg key={index} pegId={pegsArr[index]} pegBgColor="blue" />);
+           pegsColumn.push(<Peg 
+            key={index} 
+            pegId={pegsArr[index]} 
+            injectedValue={this.props.injectedValue}
+            injectedColor={this.props.injectedColor} />);
         }
         return (
             <div>
