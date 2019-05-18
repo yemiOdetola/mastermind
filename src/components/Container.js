@@ -9,9 +9,12 @@ class Container extends React.Component {
             generatedMatches: [],
             showVal: false,
             toInjectColor: '',
-            toInjectValue: ''
+            toInjectValue: '',
+            paintedVal: '',
+            paintedArray: []
         }
         this.updateInjection = this.updateInjection.bind(this);
+        this.getInjected = this.getInjected.bind(this);
     }
 
     updateInjection(value, color) {
@@ -46,6 +49,14 @@ class Container extends React.Component {
         }
         return intersect;
     }
+    
+    getInjected(value) {
+        this.setState(prevState => ({
+            ...prevState,
+            paintedArray: [...prevState.paintedArray, value]
+         }))
+         console.log(this.state.paintedArray);
+    }
 
     componentWillMount() {
         let randomizer = this.props.randomizer();
@@ -69,7 +80,10 @@ class Container extends React.Component {
             <div className="container">
                 <div className="row">
                     <div className="col-xs-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
-                        <DecodeRow injectedValue={this.state.toInjectValue} injectedColor={this.state.toInjectColor}/>
+                        <DecodeRow 
+                            injectedValue={this.state.toInjectValue} 
+                            injectedColor={this.state.toInjectColor}
+                            getinjected={this.getInjected}/>
                         <p>Parent: color:{this.state.toInjectColor}, value: {this.state.toInjectValue}</p>
                         <SidePegs updatetoinject={this.updateInjection}/>
                     </div>
