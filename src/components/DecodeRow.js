@@ -25,28 +25,28 @@ class DecodeRow extends React.Component {
         this.setState({
             statePicks: picks
         })
-        console.log(this.state.statePicks)
+        this.props.retrievePicks(this.state.statePicks);
     }
     holdInjected2(injected2) {
         picks[1] = injected2;
         this.setState({
             statePicks: picks
         })
-        console.log(this.state.statePicks)
+        this.props.retrievePicks(this.state.statePicks);
     }
     holdInjected3(injected3) {
         picks[2] = injected3;
         this.setState({
             statePicks: picks
         })
-        console.log(this.state.statePicks)
+        this.props.retrievePicks(this.state.statePicks);
     }
     holdInjected4(injected4) {
         picks[3] = injected4;
         this.setState({
             statePicks: picks
         })
-        console.log(this.state.statePicks)
+        this.props.retrievePicks(this.state.statePicks);
     }
     getInjected(idInjected) {
         this.setState({
