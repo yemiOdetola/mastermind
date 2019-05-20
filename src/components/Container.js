@@ -55,7 +55,6 @@ class Container extends React.Component {
             ...prevState,
             paintedArray: [...prevState.paintedArray, value]
          }))
-         console.log(this.state.paintedArray);
     }
 
     componentWillMount() {
