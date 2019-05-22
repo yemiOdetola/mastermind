@@ -6,17 +6,20 @@ class Container extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            generatedMatches: [],
             showVal: false,
             toInjectColor: '',
             toInjectValue: '',
             paintedVal: '',
             paintedArray: [],
-            injectedPicks: []
+            injectedPicks: [],
+            randomArr: []
         }
         this.updateInjection = this.updateInjection.bind(this);
         this.getInjected = this.getInjected.bind(this);
         this.getPicks = this.getPicks.bind(this);
+        this.createRandomValues = this.createRandomValues.bind(this);
+        this.findIntersection = this.findIntersection.bind(this);
+        this.setRandomToState = this.setRandomToState.bind(this);
     }
 
     updateInjection(value, color) {
@@ -58,31 +61,37 @@ class Container extends React.Component {
             paintedArray: [...prevState.paintedArray, value]
          }))
     }
+
     getPicks(picks) {
         this.setState({
             injectedPicks: picks
         })
     }
 
-    componentWillMount() {
-        let randomizer = this.props.randomizer();
-        randomizer.map(i => {
-            return this.state.generatedMatches.push(i);
+    setRandomToState() {
+        let randomValues = this.createRandomValues();
+        this.setState({
+            randomArr: randomValues
         })
-        // let selectedColorValues = this.props.selectedColorValues;
-        // let generatedMatches = this.state.generatedMatches;
-        // console.log(selectedColorValues);
-        // console.log(generatedMatches);
-        let a = [8, 8, 8, 8];
-        let b = [6, 8, 7, 8];
-        this.findIntersection(a, b);
-        // console.log(this.findIntersection(a, b));
-        // console.log(this.findMatch(b, a));
-        // console.log(this.findMatch(selectedColorValues, generatedMatches));
+    }
+
+    createRandomValues = (length = 4, max = 5) => {
+        return Array.apply(null, Array(length)).map(function () {
+          let randomizedValues = Math.round(Math.random() * max);
+        return randomizedValues;
+        });
+      }
+
+    componentWillMount() {
+        this.setRandomToState();
+    }
+
+    componentDidMount() {
+        console.log('state array', this.state.randomArr);
     }
 
     render() {
-        console.log('injected picks', this.state.injectedPicks);
+        console.log('injected picks Container', this.state.injectedPicks);
         return (
             <div className="container">
                 <div className="row">
@@ -92,6 +101,7 @@ class Container extends React.Component {
                             injectedColor={this.state.toInjectColor}
                             getinjected={this.getInjected}
                             retrievePicks={this.getPicks}/>
+                            {/* <button className="btn btn-small btn-success" onClick={this.findIntersection([1, 2, 3, 5], [1, 3, 4, 2])}></button> */}
                         <p>Parent: color:{this.state.toInjectColor}, value: {this.state.toInjectValue}</p>
                         <SidePegs updatetoinject={this.updateInjection}/>
                     </div>

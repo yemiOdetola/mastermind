@@ -1,7 +1,7 @@
 import React from 'react';
 import Peg from './Peg';
 
-let picks = [0, 0, 0, 0]
+let picks = [0, 0, 0, 0];
 
 class DecodeRow extends React.Component {
     constructor(props) {
