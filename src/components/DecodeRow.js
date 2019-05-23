@@ -67,11 +67,11 @@ class DecodeRow extends React.Component {
                 handle1={this.holdInjected1}
                 handle2={this.holdInjected2}
                 handle3={this.holdInjected3}
-                handle4={this.holdInjected4}/>);
+                handle4={this.holdInjected4}
+                setEditable={(this.props.activatedDuck === this.props.duckId) ? true : false }/>);
         }
         return (
             <div>
-                <p>Value: {this.state.injectedVal}</p>
                 {pegsColumn}
             </div>
         )

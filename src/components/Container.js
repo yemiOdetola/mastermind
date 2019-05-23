@@ -11,8 +11,11 @@ class Container extends React.Component {
             toInjectValue: '',
             paintedVal: '',
             paintedArray: [],
-            injectedPicks: [],
-            randomArr: []
+            injectedPicks: [0, 0, 0, 0],
+            randomArr: [],
+            isEditable: false,
+            activatedDuck: 1,
+            buttonStyle: 'btn btn-small'
         }
         this.updateInjection = this.updateInjection.bind(this);
         this.getInjected = this.getInjected.bind(this);
@@ -52,20 +55,41 @@ class Container extends React.Component {
                 intersect[i] = 0;
             }
         }
+        console.log(intersect);
         return intersect;
     }
-    
+
     getInjected(value) {
         this.setState(prevState => ({
             ...prevState,
             paintedArray: [...prevState.paintedArray, value]
-         }))
+        }))
+    }
+
+    increamentDuck() {
+        let duckIncreament = this.state.activatedDuck;
+        this.setState({
+            activatedDuck: this.state.activatedDuck + 1
+        })
+        console.log('duck increament', duckIncreament++);
     }
 
     getPicks(picks) {
         this.setState({
             injectedPicks: picks
         })
+        let pickedCol = picks;
+        for (let val = 0; val < pickedCol.length; val++) {
+            if (pickedCol[val] === 0) {
+                this.setState({
+                    buttonStyle: 'btn btn-small btn-disabled'
+                })
+            } else {
+                this.setState({
+                    buttonStyle: 'btn btn-small btn-success'
+                })
+            }
+        }
     }
 
     setRandomToState() {
@@ -77,10 +101,10 @@ class Container extends React.Component {
 
     createRandomValues = (length = 4, max = 5) => {
         return Array.apply(null, Array(length)).map(function () {
-          let randomizedValues = Math.round(Math.random() * max);
-        return randomizedValues;
+            let randomizedValues = Math.round(Math.random() * max);
+            return randomizedValues;
         });
-      }
+    }
 
     componentWillMount() {
         this.setRandomToState();
@@ -92,18 +116,33 @@ class Container extends React.Component {
 
     render() {
         console.log('injected picks Container', this.state.injectedPicks);
+        let duckRow = [];
+        for (let i = 0; i < 10; i++) {
+            duckRow.push(
+                <DecodeRow
+                    key={i}
+                    injectedValue={this.state.toInjectValue}
+                    injectedColor={this.state.toInjectColor}
+                    getinjected={this.getInjected}
+                    retrievePicks={this.getPicks}
+                    duckId={i + 1}
+                    activatedDuck={this.state.activatedDuck}/>
+            )
+        }
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-xs-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
-                        <DecodeRow 
-                            injectedValue={this.state.toInjectValue} 
-                            injectedColor={this.state.toInjectColor}
-                            getinjected={this.getInjected}
-                            retrievePicks={this.getPicks}/>
-                            {/* <button className="btn btn-small btn-success" onClick={this.findIntersection([1, 2, 3, 5], [1, 3, 4, 2])}></button> */}
+                        {duckRow}
+                        <button className={`${this.state.buttonStyle}`}
+                            onClick={(e) => {
+                                this.findIntersection(this.state.randomArr, this.state.injectedPicks);
+                                this.increamentDuck();
+                            }
+                            }>Click</button>
                         <p>Parent: color:{this.state.toInjectColor}, value: {this.state.toInjectValue}</p>
-                        <SidePegs updatetoinject={this.updateInjection}/>
+
+                        <SidePegs updatetoinject={this.updateInjection} />
                     </div>
                 </div>
             </div>

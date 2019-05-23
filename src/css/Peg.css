@@ -1,7 +1,7 @@
 .emptyPeg {
     margin: 5px;
     display: inline-block;
-    border: 2px solid rgb(165, 165, 165);
+    border: 2px solid rgb(126, 124, 124);
     border-radius: 50%;
     width: 42px;
     height: 42px;
@@ -36,4 +36,11 @@
 .color5 {
     background-color: #1976d2;
     border-color: #1976d2;
+}
+
+.notEditable {
+    opacity: 0.3;
+}
+.notEditable:hover {
+    cursor: not-allowed;
 }

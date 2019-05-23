@@ -74,12 +74,15 @@ class Peg extends React.Component {
     }
 
     render() {
-        // console.log(this.props)
+        let defaultPegStyle = 'emptyPeg';
+        if (this.props.setEditable === false) {
+            defaultPegStyle += ` notEditable`;
+        }
         return (
             <div
-                className={`emptyPeg ${this.state.styleInject}`}
-                onClick={this.injectCopied}
-                pegid={this.props.pegId}>
+                className={`${defaultPegStyle} ${this.state.styleInject}`}
+                onClick={this.props.setEditable ? this.injectCopied : undefined}
+                pegid={this.props.pegId}> 
             </div>
         )
     }
