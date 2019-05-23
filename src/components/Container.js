@@ -55,6 +55,9 @@ class Container extends React.Component {
                 intersect[i] = 0;
             }
         }
+        this.setState({
+            injectedPicks: [0, 0, 0, 0]
+        })
         console.log(intersect);
         return intersect;
     }
@@ -78,7 +81,7 @@ class Container extends React.Component {
         this.setState({
             injectedPicks: picks
         })
-        let pickedCol = picks;
+        let pickedCol = this.state.injectedPicks;
         for (let val = 0; val < pickedCol.length; val++) {
             if (pickedCol[val] === 0) {
                 this.setState({
