@@ -44,3 +44,33 @@
 .notEditable:hover {
     cursor: not-allowed;
 }
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+.indicator.intersect {
+    border-color: #388E3C;
+    background-color: #388E3C;
+}
+.indcator.match {
+    border-color: #616161;
+    background-color: #616161;
+}
+.indicators {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 35px;
+    height: 45px;
+}
+
+.hide {
+    display: none;
+}
+
+.pegs-duck {
+    display: flex;
+    justify-content: space-between;
+}

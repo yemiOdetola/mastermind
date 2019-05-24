@@ -1,6 +1,8 @@
 import React from 'react';
 import DecodeRow from './DecodeRow';
 import { SidePegs } from './SidebarCover';
+import Check from './Check';
+import { Indicators } from './Indicator';
 
 class Container extends React.Component {
     constructor(props) {
@@ -23,6 +25,7 @@ class Container extends React.Component {
         this.createRandomValues = this.createRandomValues.bind(this);
         this.findIntersection = this.findIntersection.bind(this);
         this.setRandomToState = this.setRandomToState.bind(this);
+        this.getNextDuck = this.getNextDuck.bind(this);
     }
 
     updateInjection(value, color) {
@@ -55,9 +58,6 @@ class Container extends React.Component {
                 intersect[i] = 0;
             }
         }
-        this.setState({
-            injectedPicks: [0, 0, 0, 0]
-        })
         console.log(intersect);
         return intersect;
     }
@@ -69,12 +69,10 @@ class Container extends React.Component {
         }))
     }
 
-    increamentDuck() {
-        let duckIncreament = this.state.activatedDuck;
+    getNextDuck(duckId) {
         this.setState({
-            activatedDuck: this.state.activatedDuck + 1
+            activatedDuck: duckId
         })
-        console.log('duck increament', duckIncreament++);
     }
 
     getPicks(picks) {
@@ -122,14 +120,35 @@ class Container extends React.Component {
         let duckRow = [];
         for (let i = 0; i < 10; i++) {
             duckRow.push(
-                <DecodeRow
-                    key={i}
-                    injectedValue={this.state.toInjectValue}
-                    injectedColor={this.state.toInjectColor}
-                    getinjected={this.getInjected}
-                    retrievePicks={this.getPicks}
-                    duckId={i + 1}
-                    activatedDuck={this.state.activatedDuck}/>
+                <div className="pegs-duck" key={`row${i}`}>
+                    <div className="pegRow">
+                    <DecodeRow
+                        key={i}
+                        injectedValue={this.state.toInjectValue}
+                        injectedColor={this.state.toInjectColor}
+                        getinjected={this.getInjected}
+                        retrievePicks={this.getPicks}
+                        duckId={i + 1}
+                        activatedDuck={this.state.activatedDuck}
+                    />
+                    </div>
+                    <div className={(this.state.activatedDuck === (i + 1)) ? 'hide' : 'indicators'}>
+                    <Indicators />
+                    </div>
+                    <div className={(this.state.activatedDuck === (i + 1)) ? 'checkbtn'  : 'hide'}>
+                        <Check
+                        key={`btn${i}`}
+                        id={i + 1}
+                        randomArr={this.state.randomArr}
+                        injectedPicks={this.state.injectedPicks}
+                        increamentDuck={this.increamemntDuck}
+                        findIntersection={this.findIntersection}
+                        buttonStyle={this.state.buttonStyle}
+                        getNextDuck={this.getNextDuck}
+                        activatedDuck={this.state.activatedDuck}
+                    />
+                    </div>
+                </div>
             )
         }
         return (
@@ -137,12 +156,6 @@ class Container extends React.Component {
                 <div className="row">
                     <div className="col-xs-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
                         {duckRow}
-                        <button className={`${this.state.buttonStyle}`}
-                            onClick={(e) => {
-                                this.findIntersection(this.state.randomArr, this.state.injectedPicks);
-                                this.increamentDuck();
-                            }
-                            }>Click</button>
                         <p>Parent: color:{this.state.toInjectColor}, value: {this.state.toInjectValue}</p>
 
                         <SidePegs updatetoinject={this.updateInjection} />
