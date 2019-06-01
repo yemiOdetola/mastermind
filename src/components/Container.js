@@ -20,10 +20,10 @@ class Container extends React.Component {
             buttonStyle: 'btn btn-small'
         }
         this.updateInjection = this.updateInjection.bind(this);
+        this.findMatch = this.findMatch.bind(this);
         this.getInjected = this.getInjected.bind(this);
         this.getPicks = this.getPicks.bind(this);
         this.createRandomValues = this.createRandomValues.bind(this);
-        this.findIntersection = this.findIntersection.bind(this);
         this.setRandomToState = this.setRandomToState.bind(this);
         this.getNextDuck = this.getNextDuck.bind(this);
     }
@@ -35,31 +35,18 @@ class Container extends React.Component {
         })
     }
 
-    // findMatch(a, b) {
-    //     let foundMatches = [];
-    //     let distinctValues;
-    //     for (let i = 0; i < a.length; i++) {
-    //         for (let y = 0; y < b.length; y++) {
-    //             if (a[i] === b[y]) {
-    //                 foundMatches.push(a[i]);
-    //                 distinctValues = [...new Set(foundMatches)]
-    //             }
-    //         }
-    //     }
-    //     return distinctValues;
-    // }
-
-    findIntersection(a, b) {
-        let intersect = [];
-        for (var i = 0; i < Math.min(a.length, b.length); i++) {
-            if (a[i] === b[i]) {
-                intersect[i] = a[i];
-            } else {
-                intersect[i] = 0;
+    findMatch(a, b) {
+        let foundMatches = [];
+        let distinctValues;
+        for (let i = 0; i < a.length; i++) {
+            for (let y = 0; y < b.length; y++) {
+                if (a[i] === b[y]) {
+                    foundMatches.push(a[i]);
+                    distinctValues = [...new Set(foundMatches)]
+                }
             }
         }
-        console.log(intersect);
-        return intersect;
+        return distinctValues;
     }
 
     getInjected(value) {
@@ -112,7 +99,7 @@ class Container extends React.Component {
     }
 
     componentDidMount() {
-        console.log('state array', this.state.randomArr);
+        // console.log('state array', this.state.randomArr);
     }
 
     render() {
@@ -141,8 +128,7 @@ class Container extends React.Component {
                         id={i + 1}
                         randomArr={this.state.randomArr}
                         injectedPicks={this.state.injectedPicks}
-                        increamentDuck={this.increamemntDuck}
-                        findIntersection={this.findIntersection}
+                        increamentDuck={this.increamentDuck}
                         buttonStyle={this.state.buttonStyle}
                         getNextDuck={this.getNextDuck}
                         activatedDuck={this.state.activatedDuck}

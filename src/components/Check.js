@@ -6,7 +6,21 @@ class Check extends React.Component {
         this.state = {
             currentDuck: 1
         }
+        this.findIntersection = this.findIntersection.bind(this);
         this.increamentDuck = this.increamentDuck.bind(this);
+    }
+
+    findIntersection(a, b) {
+        let intersect = [];
+        for (var i = 0; i < Math.min(a.length, b.length); i++) {
+            if (a[i] === b[i]) {
+                intersect[i] = a[i];
+            } else {
+                intersect[i] = 0;
+            }
+        }
+        console.log(intersect);
+        return intersect;
     }
 
     increamentDuck() {
@@ -19,6 +33,8 @@ class Check extends React.Component {
     }
 
     render() {
+        console.log('randomArr', this.props.randomArr)
+        console.log('injectedPicks', this.props.injectedPicks)
         return (
             <button className={(this.props.activatedDuck === this.props.id) ? this.props.buttonStyle : 'btn btn-small btn-default'}
                 disabled={this.props.activatedDuck !== this.props.id}
