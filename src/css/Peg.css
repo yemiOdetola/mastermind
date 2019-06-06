@@ -13,10 +13,7 @@
 .colorNull {
     background-color: #ffffff;
 }
-.color0 {
-    background-color: #388e3c;
-    border-color: #388e3c;
-}
+
 .color1 {
     background-color: #fbc02d;
     border-color: #fbc02d;
@@ -37,7 +34,10 @@
     background-color: #1976d2;
     border-color: #1976d2;
 }
-
+.color6 {
+    background-color: #388e3c;
+    border-color: #388e3c;
+}
 .notEditable {
     opacity: 0.3;
 }

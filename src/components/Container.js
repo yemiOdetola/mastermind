@@ -17,10 +17,14 @@ class Container extends React.Component {
             randomArr: [],
             isEditable: false,
             activatedDuck: 1,
-            buttonStyle: 'btn btn-small'
+            buttonStyle: 'btn btn-small',
+            exactMatches: 0,
+            ValueMatches: 0
+
         }
+        this.getExactMatches = this.getExactMatches.bind(this);
+        this.getValueMatches = this.getValueMatches.bind(this);
         this.updateInjection = this.updateInjection.bind(this);
-        this.findMatch = this.findMatch.bind(this);
         this.getInjected = this.getInjected.bind(this);
         this.getPicks = this.getPicks.bind(this);
         this.createRandomValues = this.createRandomValues.bind(this);
@@ -33,20 +37,6 @@ class Container extends React.Component {
             toInjectColor: color,
             toInjectValue: value
         })
-    }
-
-    findMatch(a, b) {
-        let foundMatches = [];
-        let distinctValues;
-        for (let i = 0; i < a.length; i++) {
-            for (let y = 0; y < b.length; y++) {
-                if (a[i] === b[y]) {
-                    foundMatches.push(a[i]);
-                    distinctValues = [...new Set(foundMatches)]
-                }
-            }
-        }
-        return distinctValues;
     }
 
     getInjected(value) {
@@ -87,6 +77,18 @@ class Container extends React.Component {
         })
     }
 
+    getExactMatches(exact) {
+        this.setState({
+            exactMatches: exact
+        })   
+    }
+
+    getValueMatches(value) {
+        this.setState({
+            ValueMatches: value
+        })   
+    }
+
     createRandomValues = (length = 4, max = 5) => {
         return Array.apply(null, Array(length)).map(function () {
             let randomizedValues = Math.round(Math.random() * max);
@@ -103,14 +105,15 @@ class Container extends React.Component {
     }
 
     render() {
-        console.log('injected picks Container', this.state.injectedPicks);
+        // console.log('injected picks Container', this.state.injectedPicks);
+        // console.log('random array Container', this.state.randomArr);
         let duckRow = [];
         for (let i = 0; i < 10; i++) {
             duckRow.push(
                 <div className="pegs-duck" key={`row${i}`}>
                     <div className="pegRow">
                     <DecodeRow
-                        key={i}
+                     exactMatches   key={i}
                         injectedValue={this.state.toInjectValue}
                         injectedColor={this.state.toInjectColor}
                         getinjected={this.getInjected}
@@ -126,6 +129,10 @@ class Container extends React.Component {
                         <Check
                         key={`btn${i}`}
                         id={i + 1}
+                        getValueMatches={this.getValueMatches}
+                        getExactMatches={this.getExactMatches}
+                        exactMatches={this.state.exactMatches}
+                        valueMatches={this.state.valueMatches}
                         randomArr={this.state.randomArr}
                         injectedPicks={this.state.injectedPicks}
                         increamentDuck={this.increamentDuck}

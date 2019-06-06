@@ -41,12 +41,12 @@ export class SidePegs extends React.Component {
         super(props)
         this.state = {
             pegsProperties: [
-                { indexValue: 0, indexColor: 'color0' },
                 { indexValue: 1, indexColor: 'color1' },
                 { indexValue: 2, indexColor: 'color2' },
                 { indexValue: 3, indexColor: 'color3' },
                 { indexValue: 4, indexColor: 'color4' },
                 { indexValue: 5, indexColor: 'color5' },
+                { indexValue: 6, indexColor: 'color6' }
             ]
         }
     }

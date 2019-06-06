@@ -4,13 +4,19 @@ import '../css/Peg.css';
 export class Indicators extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            exactMatches: 1,
+            valueMatches: 2
+        }
     }
 
     render() {
         let indicatorGroup = [];
-        for (let i = 0; i < 4; i++) {
+        let nullDecider = -(this.state.exactMatches + this.state.valueMatches) + 4;
+        console.log('null decider', nullDecider);
+        for (let i = 0; i < nullDecider; i++) {
             indicatorGroup.push(
-                <EachIndicator
+                <NullIndicator
                     key={`indicator${i}`}
                 />
             )
@@ -24,7 +30,41 @@ export class Indicators extends React.Component {
 }
 
 
-export class EachIndicator extends React.Component {
+export class NullIndicator extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            indicatorStyle: 'indicator'
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <div className={this.state.indicatorStyle}></div>
+            </div>
+        );
+    }
+}
+
+export class ValueMatchesIndicator extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            indicatorStyle: 'indicator'
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                <div className={this.state.indicatorStyle}></div>
+            </div>
+        );
+    }
+}
+
+export class ExactMatchesIndicator extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
