@@ -30,30 +30,16 @@ class Check extends React.Component {
                     })
                     console.log('exactMatches in state final', this.state.exactMatches)
                 }, 5);
-                delete a[i]
-                delete b[i]
+                console.log('a[i]', a[i])
+                console.log('b[i]', b[i])
+                delete a[i];
+                delete b[i];
 
             } else {
                 intersect[i] = 0;
             }
         }
-        console.log('a', a, 'b', b);
-        console.log('intersection', intersect);
-        // let matchArr = [];
-        // intersect.forEach(el => {
-        //     if (el > 0) {
-        //         matchArr.push(el);
-        //         let matchLength = matchArr.length
-        //         setTimeout(() => {
-        //             this.setState({
-        //                 exactMatches: matchLength
-        //             })
-        //             console.log('exactMatchFromArray', this.state.exactMatches)
-        //         }, 10);
-
-        //     }
-        // })
-
+        console.log('a', a, 'b', b, 'alength', a.length, 'blength', b.length);
     }
     findMatch(a, b) {
         let foundMatches = [];
@@ -85,18 +71,19 @@ class Check extends React.Component {
                 statePicks: this.props.injectedPicks
             })
         }
-        console.log('statepicks', this.state.statePicks);
+        // console.log('statepicks', this.state.statePicks);
         console.log('stateRandomArray', this.state.stateRandomArray);
     }
 
     render() {
+        let stateRandomArrayCopy = this.state.stateRandomArray.slice();
         return (
             <button className={(this.props.activatedDuck === this.props.id) ? this.props.buttonStyle : 'btn btn-small btn-default'}
                 disabled={this.props.activatedDuck !== this.props.id}
                 // getIndicatorValues={this.state.exactMatches, this.state.valueMatches}
                 onClick={(e) => {
-                    this.findIntersection(this.props.randomArr, this.props.injectedPicks)
-                    this.findMatch(this.props.randomArr, this.props.injectedPicks)
+                    this.findIntersection(stateRandomArrayCopy, this.props.injectedPicks)
+                    this.findMatch(stateRandomArrayCopy, this.props.injectedPicks)
                     this.increamentDuck()
                 }
                 }>Click</button>
