@@ -19,7 +19,7 @@ class Container extends React.Component {
             activatedDuck: 1,
             buttonStyle: 'btn btn-small',
             exactMatches: 0,
-            ValueMatches: 0
+            valueMatches: 0
 
         }
         this.getExactMatches = this.getExactMatches.bind(this);
@@ -85,7 +85,7 @@ class Container extends React.Component {
 
     getValueMatches(value) {
         this.setState({
-            ValueMatches: value
+            valueMatches: value
         })   
     }
 
@@ -123,7 +123,10 @@ class Container extends React.Component {
                     />
                     </div>
                     <div className={(this.state.activatedDuck === (i + 1)) ? 'hide' : 'indicators'}>
-                    <Indicators />
+                    <Indicators 
+                        exactMatches={this.state.exactMatches}
+                        valueMatches={this.state.valueMatches}
+                    />
                     </div>
                     <div className={(this.state.activatedDuck === (i + 1)) ? 'checkbtn'  : 'hide'}>
                         <Check

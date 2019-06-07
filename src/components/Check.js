@@ -5,8 +5,6 @@ class Check extends React.Component {
         super(props)
         this.state = {
             currentDuck: 1,
-            exactMatches: 0,
-            valueMatches: 0,
             stateRandomArray: this.props.randomArr,
             statePicks: 0
         }
@@ -23,15 +21,9 @@ class Check extends React.Component {
                 intersect[i] = a[i];
                 exactIndexed.push(intersect[i]);
                 let exactIndexLength = exactIndexed.length;
-                console.log('exactIndexLength', exactIndexLength)
                 setTimeout(() => {
-                    this.setState({
-                        exactMatches: exactIndexLength
-                    })
-                    console.log('exactMatches in state final', this.state.exactMatches)
+                    this.props.getExactMatches(exactIndexLength);
                 }, 5);
-                console.log('a[i]', a[i])
-                console.log('b[i]', b[i])
                 delete a[i];
                 delete b[i];
 
@@ -55,17 +47,16 @@ class Check extends React.Component {
             }
         }
         console.log('distinct Values before', distinctValues);
-        let valMatch = distinctValues.slice();
-        console.log('valmatch', valMatch);
-        let valMatchLength = valMatch.length;
-        console.log('valMatch lenght', valMatchLength);
+        let valMatch, valMatchLength;
+        if (typeof distinctValues !== 'undefined') {
+            valMatch = distinctValues.slice();
+            valMatchLength = valMatch.length;
+        } else {
+            valMatchLength = 0
+        }
         setTimeout(() => {
-            this.setState({
-                valueMatches: valMatchLength
-            })
-            console.log('value matches in state after', this.state.valueMatches)
-        }, 5);
-        // return distinctValues;
+            this.props.getValueMatches(valMatchLength);
+        }, 10);
     }
 
     increamentDuck() {
@@ -83,7 +74,6 @@ class Check extends React.Component {
                 statePicks: this.props.injectedPicks
             })
         }
-        // console.log('statepicks', this.state.statePicks);
         console.log('stateRandomArray', this.state.stateRandomArray);
     }
 
@@ -92,7 +82,6 @@ class Check extends React.Component {
         return (
             <button className={(this.props.activatedDuck === this.props.id) ? this.props.buttonStyle : 'btn btn-small btn-default'}
                 disabled={this.props.activatedDuck !== this.props.id}
-                // getIndicatorValues={this.state.exactMatches, this.state.valueMatches}
                 onClick={(e) => {
                     this.findIntersection(stateRandomArrayCopy, this.props.injectedPicks)
                     this.findMatch(stateRandomArrayCopy, this.props.injectedPicks)
