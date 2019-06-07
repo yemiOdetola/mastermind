@@ -52,11 +52,20 @@ class Check extends React.Component {
                         distinctValues = [...new Set(foundMatches)]
                     }
                 }
-
             }
         }
-        console.log('valueMatches', distinctValues)
-        return distinctValues;
+        console.log('distinct Values before', distinctValues);
+        let valMatch = distinctValues.slice();
+        console.log('valmatch', valMatch);
+        let valMatchLength = valMatch.length;
+        console.log('valMatch lenght', valMatchLength);
+        setTimeout(() => {
+            this.setState({
+                valueMatches: valMatchLength
+            })
+            console.log('value matches in state after', this.state.valueMatches)
+        }, 5);
+        // return distinctValues;
     }
 
     increamentDuck() {
