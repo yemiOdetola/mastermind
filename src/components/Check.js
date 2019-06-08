@@ -6,7 +6,7 @@ class Check extends React.Component {
         this.state = {
             currentDuck: 1,
             stateRandomArray: this.props.randomArr,
-            statePicks: 0
+            statePicks: this.props.injectedPicks
         }
         this.findIntersection = this.findIntersection.bind(this);
         this.findMatch = this.findMatch.bind(this);
@@ -69,7 +69,7 @@ class Check extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.injectedPicks !== prevProps.injectedPicks) {
+        if (this.props.injectedPicks !== this.state.statePicks) {
             this.setState({
                 statePicks: this.props.injectedPicks
             })
@@ -79,12 +79,13 @@ class Check extends React.Component {
 
     render() {
         let stateRandomArrayCopy = this.state.stateRandomArray.slice();
+        let stateInjectedPicksCopy = this.state.statePicks.slice();
         return (
             <button className={(this.props.activatedDuck === this.props.id) ? this.props.buttonStyle : 'btn btn-small btn-default'}
                 disabled={this.props.activatedDuck !== this.props.id}
                 onClick={(e) => {
-                    this.findIntersection(stateRandomArrayCopy, this.props.injectedPicks)
-                    this.findMatch(stateRandomArrayCopy, this.props.injectedPicks)
+                    this.findIntersection(stateRandomArrayCopy, stateInjectedPicksCopy)
+                    this.findMatch(stateRandomArrayCopy, stateInjectedPicksCopy)
                     this.increamentDuck()
                 }
                 }>Click</button>
