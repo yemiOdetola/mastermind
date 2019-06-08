@@ -16,7 +16,7 @@ export class Indicators extends React.Component {
                 exactMatches: this.props.exactMatches
             })
         }
-        if(this.props.valueMatches !== this.state.valueMatches) {
+        if (this.props.valueMatches !== this.state.valueMatches) {
             this.setState({
                 valueMatches: this.props.valueMatches
             })
@@ -34,12 +34,14 @@ export class Indicators extends React.Component {
             indicatorGroup.push(
                 <NullIndicator
                     key={`indicator${i}`}
+                    setEditable={(this.props.indicatorId === this.props.activatedIndicator) ? true : false}
                 />
             )
         }
         for (let i = 0; i < valueMatch; i++) {
             indicatorGroup.push(
                 <ValueMatchesIndicator
+                    setEditable={(this.props.indicatorId === this.props.activatedIndicator) ? true : false}
                     key={`Valueindicator${i}`}
                 />
             )
@@ -47,6 +49,7 @@ export class Indicators extends React.Component {
         for (let i = 0; i < exactMatch; i++) {
             indicatorGroup.push(
                 <ExactMatchesIndicator
+                    setEditable={(this.props.indicatorId === this.props.activatedIndicator) ? true : false}
                     key={`Matchindicator${i}`}
                 />
             )
@@ -68,6 +71,14 @@ export class NullIndicator extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.setEditable !== prevProps.setEditable) {
+            this.setState({
+                indicatorStyle: 'indicator'
+            })
+        }
+    }
+
     render() {
         return (
             <div>
@@ -85,6 +96,14 @@ export class ValueMatchesIndicator extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.setEditable !== prevProps.setEditable) {
+            this.setState({
+                indicatorStyle: 'indicator'
+            })
+        }
+    };
+
     render() {
         return (
             <div>
@@ -101,6 +120,14 @@ export class ExactMatchesIndicator extends React.Component {
             indicatorStyle: 'indicator intersect'
         }
     }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.setEditable !== prevProps.setEditable) {
+            this.setState({
+                indicatorStyle: 'indicator'
+            })
+        }
+    };
 
     render() {
         return (

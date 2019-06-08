@@ -80,13 +80,13 @@ class Container extends React.Component {
     getExactMatches(exact) {
         this.setState({
             exactMatches: exact
-        })   
+        })
     }
 
     getValueMatches(value) {
         this.setState({
             valueMatches: value
-        })   
+        })
     }
 
     createRandomValues = (length = 4, max = 5) => {
@@ -100,49 +100,46 @@ class Container extends React.Component {
         this.setRandomToState();
     }
 
-    componentDidMount() {
-        // console.log('state array', this.state.randomArr);
-    }
-
     render() {
-        // console.log('injected picks Container', this.state.injectedPicks);
-        // console.log('random array Container', this.state.randomArr);
         let duckRow = [];
         for (let i = 0; i < 10; i++) {
             duckRow.push(
                 <div className="pegs-duck" key={`row${i}`}>
                     <div className="pegRow">
-                    <DecodeRow
-                     exactMatches   key={i}
-                        injectedValue={this.state.toInjectValue}
-                        injectedColor={this.state.toInjectColor}
-                        getinjected={this.getInjected}
-                        retrievePicks={this.getPicks}
-                        duckId={i + 1}
-                        activatedDuck={this.state.activatedDuck}
-                    />
+                        <DecodeRow
+                            key={i}
+                            injectedValue={this.state.toInjectValue}
+                            injectedColor={this.state.toInjectColor}
+                            getinjected={this.getInjected}
+                            retrievePicks={this.getPicks}
+                            duckId={i + 1}
+                            activatedDuck={this.state.activatedDuck}
+                        />
                     </div>
                     <div className={(this.state.activatedDuck === (i + 1)) ? 'hide' : 'indicators'}>
-                    <Indicators 
-                        exactMatches={this.state.exactMatches}
-                        valueMatches={this.state.valueMatches}
-                    />
+                        <Indicators
+                            key={`indicator${i}`}
+                            indicatorId={i + 1}
+                            activatedIndicator={this.state.activatedDuck}
+                            exactMatches={this.state.exactMatches}
+                            valueMatches={this.state.valueMatches}
+                        />
                     </div>
-                    <div className={(this.state.activatedDuck === (i + 1)) ? 'checkbtn'  : 'hide'}>
+                    <div className={(this.state.activatedDuck === (i + 1)) ? 'checkbtn' : 'hide'}>
                         <Check
-                        key={`btn${i}`}
-                        id={i + 1}
-                        getValueMatches={this.getValueMatches}
-                        getExactMatches={this.getExactMatches}
-                        exactMatches={this.state.exactMatches}
-                        valueMatches={this.state.valueMatches}
-                        randomArr={this.state.randomArr}
-                        injectedPicks={this.state.injectedPicks}
-                        increamentDuck={this.increamentDuck}
-                        buttonStyle={this.state.buttonStyle}
-                        getNextDuck={this.getNextDuck}
-                        activatedDuck={this.state.activatedDuck}
-                    />
+                            key={`btn${i}`}
+                            id={i + 1}
+                            getValueMatches={this.getValueMatches}
+                            getExactMatches={this.getExactMatches}
+                            exactMatches={this.state.exactMatches}
+                            valueMatches={this.state.valueMatches}
+                            randomArr={this.state.randomArr}
+                            injectedPicks={this.state.injectedPicks}
+                            increamentDuck={this.increamentDuck}
+                            buttonStyle={this.state.buttonStyle}
+                            getNextDuck={this.getNextDuck}
+                            activatedDuck={this.state.activatedDuck}
+                        />
                     </div>
                 </div>
             )
