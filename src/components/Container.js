@@ -91,7 +91,7 @@ class Container extends React.Component {
 
     createRandomValues = (length = 4, max = 5) => {
         return Array.apply(null, Array(length)).map(function () {
-            let randomizedValues = Math.round(Math.random() * max);
+            let randomizedValues = Math.round((Math.random() * max) + 1);
             return randomizedValues;
         });
     }
