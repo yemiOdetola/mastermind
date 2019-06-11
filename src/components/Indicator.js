@@ -30,29 +30,31 @@ export class Indicators extends React.Component {
         let valueMatch = this.state.valueMatches;
         let exactMatch = this.state.exactMatches;
         console.log('null decider', nullMatch, 'valueMatch', valueMatch, 'exactMatch', exactMatch);
-        for (let i = 0; i < nullMatch; i++) {
-            indicatorGroup.push(
-                <NullIndicator
-                    key={`indicator${i}`}
-                    setEditable={(this.props.indicatorId === this.props.activatedIndicator) ? true : false}
-                />
-            )
-        }
-        for (let i = 0; i < valueMatch; i++) {
-            indicatorGroup.push(
-                <ValueMatchesIndicator
-                    setEditable={(this.props.indicatorId === this.props.activatedIndicator) ? true : false}
-                    key={`Valueindicator${i}`}
-                />
-            )
-        }
-        for (let i = 0; i < exactMatch; i++) {
-            indicatorGroup.push(
-                <ExactMatchesIndicator
-                    setEditable={(this.props.indicatorId === this.props.activatedIndicator) ? true : false}
-                    key={`Matchindicator${i}`}
-                />
-            )
+        if (this.props.activatedDuck - 1 === this.props.indicatorId) {
+            for (let i = 0; i < nullMatch; i++) {
+                indicatorGroup.push(
+                    <NullIndicator
+                        key={`indicator${i}`}
+                        setEditable={(this.props.indicatorId === this.props.activatedIndicator) ? true : false}
+                    />
+                )
+            }
+            for (let i = 0; i < valueMatch; i++) {
+                indicatorGroup.push(
+                    <ValueMatchesIndicator
+                        setEditable={(this.props.indicatorId === this.props.activatedIndicator) ? true : false}
+                        key={`Valueindicator${i}`}
+                    />
+                )
+            }
+            for (let i = 0; i < exactMatch; i++) {
+                indicatorGroup.push(
+                    <ExactMatchesIndicator
+                        setEditable={(this.props.indicatorId === this.props.activatedIndicator) ? true : false}
+                        key={`Matchindicator${i}`}
+                    />
+                )
+            }
         }
         return (
             <div className="indicators">
@@ -61,7 +63,6 @@ export class Indicators extends React.Component {
         )
     }
 }
-
 
 export class NullIndicator extends React.Component {
     constructor(props) {

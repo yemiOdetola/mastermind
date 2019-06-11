@@ -119,8 +119,8 @@ class Container extends React.Component {
                     <div className={(this.state.activatedDuck === (i + 1)) ? 'hide' : 'indicators'}>
                         <Indicators
                             key={`indicator${i}`}
-                            indicatorId={i + 1}
-                            activatedIndicator={this.state.activatedDuck}
+                            indicatorId={i}
+                            activatedDuck={this.state.activatedDuck}
                             exactMatches={this.state.exactMatches}
                             valueMatches={this.state.valueMatches}
                         />
