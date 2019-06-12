@@ -17,6 +17,7 @@ class Container extends React.Component {
             randomArr: [],
             isEditable: false,
             activatedDuck: 1,
+            indicatedId: 1,
             buttonStyle: 'btn btn-small',
             exactMatches: 0,
             valueMatches: 0
@@ -46,9 +47,11 @@ class Container extends React.Component {
         }))
     }
 
-    getNextDuck(duckId) {
+    getNextDuck(duckId, indiId) {
         this.setState({
-            activatedDuck: duckId
+            activatedDuck: duckId,
+            indicatedId: indiId
+
         })
     }
 
@@ -119,7 +122,7 @@ class Container extends React.Component {
                     <div className={(this.state.activatedDuck === (i + 1)) ? 'hide' : 'indicators'}>
                         <Indicators
                             key={`indicator${i}`}
-                            indicatorId={i}
+                            indicatorId={i + 1}
                             activatedDuck={this.state.activatedDuck}
                             exactMatches={this.state.exactMatches}
                             valueMatches={this.state.valueMatches}

@@ -64,7 +64,7 @@ class Check extends React.Component {
             currentDuck: this.props.activatedDuck + 1
         })
         setTimeout(() => {
-            this.props.getNextDuck(this.state.currentDuck)
+            this.props.getNextDuck(this.state.currentDuck, this.state.currentDuck)
         }, 10)
     }
 

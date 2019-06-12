@@ -24,7 +24,6 @@ class Peg extends React.Component {
             idInject: this.props.injectedValue
         })
         setTimeout(() => {
-            
             if (this.props.pegId === 1) {
                 this.setState({
                     injected1: this.state.idInject
@@ -61,11 +60,11 @@ class Peg extends React.Component {
                 }, 20);
                 console.log('updates!! injected4', this.state.injected4)
             }
-        }, 100);
+        }, 10);
 
         setTimeout(() => {
             this.updateVal();
-        }, 100);
+        }, 10);
         // Had to wait a lil bit for the state to grab the prop value
     }
 
