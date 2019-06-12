@@ -1,6 +1,37 @@
 import React from 'react';
 import '../css/Peg.css';
 
+export class IndicatorAll extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+
+        }
+    }
+
+
+    render() {
+        let allIndiArray = [];
+        for (let a = 0; a < 10; a++) {
+            allIndiArray.push(
+                <Indicators
+                    key={a}
+                    activatedDuck={this.props.activatedDuck}
+                    exactMatches={this.props.exactMatches}
+                    valueMatches={this.props.valueMatches}
+                    currentIndi={a + 1}
+                    editIndicators={(this.props.activatedDuck === (a + 1)) ? true : false}
+                />
+            )
+        }
+        return (
+            <div>
+                {allIndiArray}
+            </div>
+        )
+    }
+}
+
 export class Indicators extends React.Component {
     constructor(props) {
         super(props)
@@ -30,7 +61,7 @@ export class Indicators extends React.Component {
         let valueMatch = this.state.valueMatches;
         let exactMatch = this.state.exactMatches;
         console.log('null decider', nullMatch, 'valueMatch', valueMatch, 'exactMatch', exactMatch);
-        if (this.props.activatedDuck - 1 === this.props.indicatorId) {
+        if (this.props.editIndcators) {
             for (let i = 0; i < nullMatch; i++) {
                 indicatorGroup.push(
                     <NullIndicator
@@ -52,6 +83,17 @@ export class Indicators extends React.Component {
                     <ExactMatchesIndicator
                         setEditable={(this.props.indicatorId === this.props.activatedIndicator) ? true : false}
                         key={`Matchindicator${i}`}
+                    />
+                )
+            }
+        } else if (this.props.activatedDuck < this.props.currentIndi) {
+            return true;
+        } else {
+            for (let i = 0; i < 4; i++) {
+                indicatorGroup.push(
+                    <NullIndicator
+                        key={`indicator${i}`}
+                        setEditable={(this.props.indicatorId === this.props.activatedIndicator) ? true : false}
                     />
                 )
             }
