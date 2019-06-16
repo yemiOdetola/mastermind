@@ -2,6 +2,7 @@ import React from 'react';
 import DecodeRow from './DecodeRow';
 import { SidePegs } from './SidebarCover';
 import Check from './Check';
+import { Indicator } from './Indicator';
 
 class Container extends React.Component {
     constructor(props) {
@@ -118,6 +119,15 @@ class Container extends React.Component {
                             activatedDuck={this.state.activatedDuck}
                         />
                     </div>
+                    <div className={(this.state.activatedDuck !== (i + 1)) ? '' : 'hide'}>
+                        <Indicator
+                            exactMatches={this.state.exactMatches}
+                            indicatorId={i + 1}
+                            key={`indicator${i}`}
+                            activatedDuck={this.state.activatedDuck}
+                            valueMatches={this.state.valueMatches}
+                        />
+                    </div>
                     <div className={(this.state.activatedDuck === (i + 1)) ? 'checkbtn' : 'hide'}>
                         <Check
                             key={`btn${i}`}
@@ -143,7 +153,7 @@ class Container extends React.Component {
                     <div className="col-xs-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
                         {duckRow}
                         <p>Parent: color:{this.state.toInjectColor}, value: {this.state.toInjectValue}</p>
-
+                        
                         <SidePegs updatetoinject={this.updateInjection} />
                     </div>
                 </div>
