@@ -28,44 +28,32 @@ class Peg extends React.Component {
                 this.setState({
                     injected1: this.state.idInject
                 })
-                setTimeout(() => {
-                    this.props.handle1(this.state.injected1);
-                }, 20);
+                this.props.handle1(this.state.injected1);
                 console.log('updates!! injected1', this.state.injected1)
             }
             if (this.props.pegId === 2) {
                 this.setState({
                     injected2: this.state.idInject
                 })
-                setTimeout(() => {
-                    this.props.handle2(this.state.injected2);
-                }, 20);
+                this.props.handle2(this.state.injected2);
                 console.log('updates!! injected2', this.state.injected2)
             }
             if (this.props.pegId === 3) {
                 this.setState({
                     injected3: this.state.idInject
                 })
-                setTimeout(() => {
-                    this.props.handle3(this.state.injected3);
-                }, 20);
+                this.props.handle3(this.state.injected3);
                 console.log('updates!! injected3', this.state.injected3)
             }
             if (this.props.pegId === 4) {
                 this.setState({
                     injected4: this.state.idInject
                 })
-                setTimeout(() => {
-                    this.props.handle4(this.state.injected4);
-                }, 20);
+                this.props.handle4(this.state.injected4);
                 console.log('updates!! injected4', this.state.injected4)
             }
-        }, 10);
-
-        setTimeout(() => {
-            this.updateVal();
-        }, 10);
-        // Had to wait a lil bit for the state to grab the prop value
+        }, 1);
+        this.updateVal();
     }
 
     updateVal() {
@@ -81,7 +69,7 @@ class Peg extends React.Component {
             <div
                 className={`${defaultPegStyle} ${this.state.styleInject}`}
                 onClick={this.props.setEditable ? this.injectCopied : undefined}
-                pegid={this.props.pegId}> 
+                pegid={this.props.pegId}>
             </div>
         )
     }

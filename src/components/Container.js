@@ -2,7 +2,7 @@ import React from 'react';
 import DecodeRow from './DecodeRow';
 import { SidePegs } from './SidebarCover';
 import Check from './Check';
-import { Indicator } from './Indicator';
+import { IndicatorGroup } from './Indicator';
 
 class Container extends React.Component {
     constructor(props) {
@@ -120,7 +120,7 @@ class Container extends React.Component {
                         />
                     </div>
                     <div className={(this.state.activatedDuck !== (i + 1)) ? '' : 'hide'}>
-                        <Indicator
+                        <IndicatorGroup
                             exactMatches={this.state.exactMatches}
                             indicatorId={i + 1}
                             key={`indicator${i}`}

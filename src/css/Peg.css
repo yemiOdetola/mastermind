@@ -50,11 +50,11 @@
     border-radius: 50%;
     border: 1px solid #333;
 }
-.indicator.intersect {
+.indicator.exact {
     border-color: #388E3C;
     background-color: #388E3C;
 }
-.indicator.match {
+.indicator.value {
     border-color: #616161;
     background-color: #616161;
 }
