@@ -121,10 +121,10 @@ class Container extends React.Component {
                     </div>
                     <div className={(this.state.activatedDuck !== (i + 1)) ? '' : 'hide'}>
                         <IndicatorGroup
-                            exactMatches={this.state.exactMatches}
                             indicatorId={i + 1}
                             key={`indicator${i}`}
                             activatedDuck={this.state.activatedDuck}
+                            exactMatches={this.state.exactMatches}
                             valueMatches={this.state.valueMatches}
                         />
                     </div>
@@ -150,7 +150,7 @@ class Container extends React.Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-xs-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
+                    <div className="col-xs-12 col-sm-10 col-md-6 col-lg-4 mx-auto">
                         {duckRow}
                         <p>Parent: color:{this.state.toInjectColor}, value: {this.state.toInjectValue}</p>
                         

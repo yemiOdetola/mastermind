@@ -22,7 +22,7 @@ class Check extends React.Component {
                 exactIndexed.push(intersect[i]);
                 let exactIndexLength = exactIndexed.length;
                 // setTimeout(() => {
-                    this.props.getExactMatches(exactIndexLength);
+                this.props.getExactMatches(exactIndexLength);
                 // }, 5);
                 delete a[i];
                 delete b[i];
@@ -54,7 +54,10 @@ class Check extends React.Component {
         } else {
             valMatchLength = 0
         }
-            this.props.getValueMatches(valMatchLength);
+        // if(this.props.activatedDuck = 1) {
+
+        // }
+        this.props.getValueMatches(valMatchLength);
     }
 
     increamentDuck() {
