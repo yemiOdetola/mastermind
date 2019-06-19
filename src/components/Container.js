@@ -20,11 +20,15 @@ class Container extends React.Component {
             indicatedId: 1,
             buttonStyle: 'btn btn-small',
             exactMatches: 0,
-            valueMatches: 0
+            valueMatches: 0,
+            exactMatches2: 0,
+            valueMatches2: 0
 
         }
         this.getExactMatches = this.getExactMatches.bind(this);
+        this.getExactMatches2 = this.getExactMatches2.bind(this);
         this.getValueMatches = this.getValueMatches.bind(this);
+        this.getValueMatches2 = this.getValueMatches2.bind(this);
         this.updateInjection = this.updateInjection.bind(this);
         this.getInjected = this.getInjected.bind(this);
         this.getPicks = this.getPicks.bind(this);
@@ -86,6 +90,17 @@ class Container extends React.Component {
         })
     }
 
+    getExactMatches2(exact2) {
+        this.setState({
+            exactMatches2: exact2
+        })
+    }
+    getValueMatches2(value2) {
+        this.setState({
+            valueMatches2: value2
+        })
+    }
+
     getValueMatches(value) {
         this.setState({
             valueMatches: value
@@ -105,6 +120,8 @@ class Container extends React.Component {
 
     render() {
         let duckRow = [];
+        console.log('exactMatches1', this.state.exactMatches);
+        console.log('exactMatches2', this.state.exactMatches2);
         for (let i = 0; i < 10; i++) {
             duckRow.push(
                 <div className="pegs-duck" key={`row${i}`}>
@@ -136,6 +153,8 @@ class Container extends React.Component {
                             getExactMatches={this.getExactMatches}
                             exactMatches={this.state.exactMatches}
                             valueMatches={this.state.valueMatches}
+                            getExactMatches2={this.getExactMatches2}
+                            getValueMatches2={this.getValueMatches2}
                             randomArr={this.state.randomArr}
                             injectedPicks={this.state.injectedPicks}
                             increamentDuck={this.increamentDuck}

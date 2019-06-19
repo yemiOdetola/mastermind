@@ -21,9 +21,12 @@ class Check extends React.Component {
                 intersect[i] = a[i];
                 exactIndexed.push(intersect[i]);
                 let exactIndexLength = exactIndexed.length;
-                // setTimeout(() => {
-                this.props.getExactMatches(exactIndexLength);
-                // }, 5);
+                if(this.props.activatedDuck === 1) {
+                    this.props.getExactMatches(exactIndexLength);
+                }
+                if(this.props.activatedDuck === 2) {
+                    this.props.getExactMatches2(exactIndexLength)
+                }
                 delete a[i];
                 delete b[i];
 
@@ -54,10 +57,12 @@ class Check extends React.Component {
         } else {
             valMatchLength = 0
         }
-        // if(this.props.activatedDuck = 1) {
-
-        // }
-        this.props.getValueMatches(valMatchLength);
+        if(this.props.activatedDuck === 1) {
+            this.props.getValueMatches(valMatchLength);
+        }
+        if(this.props.activatedDuck === 2) {
+            this.props.getValueMatches2(valMatchLength);
+        }
     }
 
     increamentDuck() {

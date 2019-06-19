@@ -32,6 +32,8 @@ export class IndicatorGroup extends React.Component {
                 } else {
                     indicatorStyle = indicatorStyle + ' ooop'
                 }
+            } else if (this.props.activatedDuck > (this.props.indicatorId + 1)) {
+                return;
             }
             indicators.push(
                 <Indicator
