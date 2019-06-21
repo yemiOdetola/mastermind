@@ -20,12 +20,45 @@ class Check extends React.Component {
             if (a[i] === b[i]) {
                 intersect[i] = a[i];
                 exactIndexed.push(intersect[i]);
-                let exactIndexLength = exactIndexed.length;
-                if(this.props.activatedDuck === 1) {
+                if (this.props.activatedDuck === 1) {
+                    let exactIndexLength = exactIndexed.length;
                     this.props.getExactMatches(exactIndexLength);
                 }
-                if(this.props.activatedDuck === 2) {
-                    this.props.getExactMatches2(exactIndexLength)
+                if (this.props.activatedDuck === 2) {
+                    let exactIndexLength2 = exactIndexed.length;
+                    this.props.getExactMatches2(exactIndexLength2)
+                }
+                if (this.props.activatedDuck === 3) {
+                    let exactIndexLength3 = exactIndexed.length;
+                    this.props.getExactMatches3(exactIndexLength3)
+                }
+                if (this.props.activatedDuck === 4) {
+                    let exactIndexLength4 = exactIndexed.length;
+                    this.props.getExactMatches4(exactIndexLength4)
+                }
+                if (this.props.activatedDuck === 5) {
+                    let exactIndexLength5 = exactIndexed.length;
+                    this.props.getExactMatches5(exactIndexLength5)
+                }
+                if (this.props.activatedDuck === 6) {
+                    let exactIndexLength6 = exactIndexed.length;
+                    this.props.getExactMatches6(exactIndexLength6)
+                }
+                if (this.props.activatedDuck === 7) {
+                    let exactIndexLength7 = exactIndexed.length;
+                    this.props.getExactMatches7(exactIndexLength7)
+                }
+                if (this.props.activatedDuck === 8) {
+                    let exactIndexLength8 = exactIndexed.length;
+                    this.props.getExactMatches8(exactIndexLength8)
+                }
+                if (this.props.activatedDuck === 9) {
+                    let exactIndexLength9 = exactIndexed.length;
+                    this.props.getExactMatches9(exactIndexLength9)
+                }
+                if (this.props.activatedDuck === 10) {
+                    let exactIndexLength10 = exactIndexed.length;
+                    this.props.getExactMatches10(exactIndexLength10)
                 }
                 delete a[i];
                 delete b[i];
@@ -49,19 +82,51 @@ class Check extends React.Component {
                 }
             }
         }
-        console.log('distinct Values before', distinctValues);
-        let valMatch, valMatchLength;
+        let valMatch;
         if (typeof distinctValues !== 'undefined') {
             valMatch = distinctValues.slice();
-            valMatchLength = valMatch.length;
+            if (this.props.activatedDuck === 1) {
+                let valMatchLength = valMatch.length;
+                this.props.getValueMatches(valMatchLength);
+            }
+            if (this.props.activatedDuck === 2) {
+                let valMatchLength2 = valMatch.length;
+                this.props.getValueMatches2(valMatchLength2);
+            }
+            if (this.props.activatedDuck === 3) {
+                let valMatchLength3 = valMatch.length;
+                this.props.getValueMatches3(valMatchLength3);
+            }
+            if (this.props.activatedDuck === 4) {
+                let valMatchLength4 = valMatch.length;
+                this.props.getValueMatches4(valMatchLength4);
+            }
+            if (this.props.activatedDuck === 5) {
+                let valMatchLength5 = valMatch.length;
+                this.props.getValueMatches5(valMatchLength5);
+            }
+            if (this.props.activatedDuck === 6) {
+                let valMatchLength6 = valMatch.length;
+                this.props.getValueMatches6(valMatchLength6);
+            }
+            if (this.props.activatedDuck === 7) {
+                let valMatchLength7 = valMatch.length;
+                this.props.getValueMatches7(valMatchLength7);
+            }
+            if (this.props.activatedDuck === 8) {
+                let valMatchLength8 = valMatch.length;
+                this.props.getValueMatches8(valMatchLength8);
+            }
+            if (this.props.activatedDuck === 9) {
+                let valMatchLength9 = valMatch.length;
+                this.props.getValueMatches9(valMatchLength9);
+            }
+            if (this.props.activatedDuck === 10) {
+                let valMatchLength10 = valMatch.length;
+                this.props.getValueMatches10(valMatchLength10);
+            }
         } else {
-            valMatchLength = 0
-        }
-        if(this.props.activatedDuck === 1) {
-            this.props.getValueMatches(valMatchLength);
-        }
-        if(this.props.activatedDuck === 2) {
-            this.props.getValueMatches2(valMatchLength);
+           return 0;
         }
     }
 
