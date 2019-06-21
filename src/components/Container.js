@@ -167,7 +167,7 @@ class Container extends React.Component {
     }
     getValueMatches4 = (value4) => {
         this.setState({
-            valueMatche4s: value4
+            valueMatches4: value4
         })
     }
     getValueMatches5 = (value5) => {
@@ -250,7 +250,7 @@ class Container extends React.Component {
                             valueMatches7={this.state.valueMatches7}
                             exactMatches8={this.state.exactMatches8}
                             valueMatches8={this.state.valueMatches8}
-                            exactMatches9={this.state.xactMatches9}
+                            exactMatches9={this.state.exactMatches9}
                             valueMatches9={this.state.valueMatches9}
                             exactMatches10={this.state.exactMatches10}
                             valueMatches10={this.state.valueMatches10}
