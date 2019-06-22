@@ -298,8 +298,6 @@ class Container extends React.Component {
                 <div className="row">
                     <div className="col-xs-12 col-sm-10 col-md-6 col-lg-4 mx-auto">
                         {duckRow}
-                        <p>Parent: color:{this.state.toInjectColor}, value: {this.state.toInjectValue}</p>
-
                         <SidePegs updatetoinject={this.updateInjection} />
                     </div>
                 </div>

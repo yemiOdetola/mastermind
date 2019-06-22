@@ -163,7 +163,7 @@ export class IndicatorGroup extends React.Component {
         };
         times(4)(updateIndicators);
         return (
-            <div className="indicator-group">
+            <div className="indicators">
                 {indicators}
             </div>
         )
