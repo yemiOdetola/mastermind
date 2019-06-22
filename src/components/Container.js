@@ -335,12 +335,12 @@ class Container extends React.Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-xs-12 col-sm-10 col-md-6 col-lg-5 mx-auto">
+                    <div className="col-xs-12 col-sm-10 col-md-6 offset-md-3 col-lg-5 col-xl-4 p-0">
                         <div className="duck-row">
                             {duckRow}
                         </div>
                     </div>
-                    <div className="col-md-6 ">
+                    <div className="col-md-1">
                         <div className="md-sidepegs">
                             <SidePegs updatetoinject={this.updateInjection} />
                         </div>

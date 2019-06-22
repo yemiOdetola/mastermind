@@ -64,12 +64,18 @@
   justify-content: space-between;
   width: 35px;
   height: 45px;
+  position: relative;
+  top: 0.5rem;
+}
+.checkbtn {
+  position: relative;
+  top: 0.5rem;
 }
 .duck-row {
   margin: 1rem;
 }
 .md-sidepegs {
-  float: right;
+  float: left;
   margin-left: auto;
 }
 .sm-sidepegs {
@@ -88,11 +94,24 @@
   .duck-row {
     margin-bottom: 5.5rem;
   }
+  .side-pegs {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media (min-width: 768px) {
   .sm-sidepegs {
     display: none;
+  }
+  .md-sidepegs {
+    position: relative;
+  }
+  .side-pegs {
+    position: fixed;
+    display: inline-grid;
+    justify-content: flex-start;
+    transform: translate(50%, 50%);
   }
 }
 
@@ -103,8 +122,4 @@
 .pegs-duck {
   display: flex;
   justify-content: space-between;
-}
-.side-pegs {
-  display: flex;
-  justify-content: center;
 }
