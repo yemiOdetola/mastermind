@@ -33,6 +33,10 @@ export class IndicatorGroup extends React.Component {
         let valueMatches9= this.props.valueMatches9;
         let exactMatches10= this.props.exactMatches10;
         let valueMatches10= this.props.valueMatches10;
+        let exactMatches11= this.props.exactMatches11;
+        let valueMatches11= this.props.valueMatches11;
+        let exactMatches12= this.props.exactMatches12;
+        let valueMatches12= this.props.valueMatches12;
         console.log(exactMatches);
         let updateIndicators = (i) => {
             keyVal = `ndctr${i}`;
@@ -143,6 +147,28 @@ export class IndicatorGroup extends React.Component {
                 } else if (valueMatches10 > 0) {
                     indicatorStyle = indicatorStyle + ' value';
                     valueMatches10--;
+                } else {
+                    indicatorStyle = indicatorStyle + ''
+                }
+            }
+            if (this.props.indicatorId === 11) {
+                if (exactMatches11 > 0) {
+                    indicatorStyle = indicatorStyle + ' exact';
+                    exactMatches11--;
+                } else if (valueMatches11 > 0) {
+                    indicatorStyle = indicatorStyle + ' value';
+                    valueMatches11--;
+                } else {
+                    indicatorStyle = indicatorStyle + ''
+                }
+            }
+            if (this.props.indicatorId === 12) {
+                if (exactMatches12 > 0) {
+                    indicatorStyle = indicatorStyle + ' exact';
+                    exactMatches12--;
+                } else if (valueMatches12 > 0) {
+                    indicatorStyle = indicatorStyle + ' value';
+                    valueMatches12--;
                 } else {
                     indicatorStyle = indicatorStyle + ''
                 }

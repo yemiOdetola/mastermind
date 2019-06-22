@@ -1,76 +1,110 @@
 .emptyPeg {
-    margin: 5px;
-    display: inline-block;
-    border: 2px solid rgb(126, 124, 124);
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
+  margin: 5px;
+  display: inline-block;
+  border: 2px solid rgb(126, 124, 124);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
 }
 
 .emptyPeg:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .colorNull {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .color1 {
-    background-color: #fbc02d;
-    border-color: #fbc02d;
+  background-color: #fbc02d;
+  border-color: #fbc02d;
 }
 .color2 {
-    background-color: #d81b60;
-    border-color: #d81b60;
+  background-color: #d81b60;
+  border-color: #d81b60;
 }
 .color3 {
-    background-color: #5e35b1;
-    border-color: #5e35b1;
+  background-color: #5e35b1;
+  border-color: #5e35b1;
 }
 .color4 {
-    background-color: #e64a19;
-    border-color: #e64a19;
+  background-color: #e64a19;
+  border-color: #e64a19;
 }
 .color5 {
-    background-color: #1976d2;
-    border-color: #1976d2;
+  background-color: #1976d2;
+  border-color: #1976d2;
 }
 .color6 {
-    background-color: #388e3c;
-    border-color: #388e3c;
+  background-color: #388e3c;
+  border-color: #388e3c;
 }
 .notEditable {
-    opacity: 0.3;
+  opacity: 0.3;
 }
 .notEditable:hover {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 .indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 1px solid #333;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #333;
 }
 .indicator.exact {
-    border-color: #388E3C;
-    background-color: #388E3C;
+  border-color: #388e3c;
+  background-color: #388e3c;
 }
 .indicator.value {
-    border-color: #616161;
-    background-color: #616161;
+  border-color: #777373;
+  background-color: #777373;
 }
 .indicators {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 35px;
-    height: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 35px;
+  height: 45px;
+}
+.duck-row {
+  margin: 1rem;
+}
+.md-sidepegs {
+  float: right;
+  margin-left: auto;
+}
+.sm-sidepegs {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 6px 0 10px #b8bcc7;
+  display: block;
+  padding: 0.5rem 0;
+}
+@media (max-width: 767px) {
+  .md-sidepegs {
+    display: none;
+  }
+  .duck-row {
+    margin-bottom: 5.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .sm-sidepegs {
+    display: none;
+  }
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .pegs-duck {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+.side-pegs {
+  display: flex;
+  justify-content: center;
 }

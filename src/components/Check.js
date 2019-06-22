@@ -60,6 +60,14 @@ class Check extends React.Component {
                     let exactIndexLength10 = exactIndexed.length;
                     this.props.getExactMatches10(exactIndexLength10)
                 }
+                if (this.props.activatedDuck === 11) {
+                    let exactIndexLength11 = exactIndexed.length;
+                    this.props.getExactMatches11(exactIndexLength11)
+                }
+                if (this.props.activatedDuck === 12) {
+                    let exactIndexLength12 = exactIndexed.length;
+                    this.props.getExactMatches12(exactIndexLength12)
+                }
                 delete a[i];
                 delete b[i];
 
@@ -125,12 +133,23 @@ class Check extends React.Component {
                 let valMatchLength10 = valMatch.length;
                 this.props.getValueMatches10(valMatchLength10);
             }
+            if (this.props.activatedDuck === 11) {
+                let valMatchLength11 = valMatch.length;
+                this.props.getValueMatches11(valMatchLength11);
+            }
+            if (this.props.activatedDuck === 12) {
+                let valMatchLength12 = valMatch.length;
+                this.props.getValueMatches12(valMatchLength12);
+            }
         } else {
            return 0;
         }
     }
 
     increamentDuck() {
+        if(this.props.activatedDuck === 12) {
+            this.props.showCompleted(true);
+        }
         this.setState({
             currentDuck: this.props.activatedDuck + 1
         })

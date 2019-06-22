@@ -34,8 +34,6 @@ export class EachSidePeg extends React.Component {
         );
     }
 }
-
-// The side-peg group
 export class SidePegs extends React.Component {
     constructor(props) {
         super(props)
@@ -66,7 +64,7 @@ export class SidePegs extends React.Component {
             )
         }
         return (
-            <div>
+            <div className="side-pegs">
                 {sidePegsArray}
             </div>
         )

@@ -17,6 +17,7 @@ class Container extends React.Component {
             randomArr: [],
             isEditable: false,
             activatedDuck: 1,
+            livesUp: false,
             indicatedId: 1,
             buttonStyle: 'btn btn-small',
             exactMatches: 0,
@@ -38,7 +39,11 @@ class Container extends React.Component {
             exactMatches9: 0,
             valueMatches9: 0,
             exactMatches10: 0,
-            valueMatches10: 0
+            valueMatches10: 0,
+            exactMatches11: 0,
+            valueMatches11: 0,
+            exactMatches12: 0,
+            valueMatches12: 0
 
 
         }
@@ -89,7 +94,11 @@ class Container extends React.Component {
             }
         }
     }
-
+    showCompleted = (ret) => {
+        this.setState({
+            livesUp: ret
+        })
+    }
     setRandomToState() {
         let randomValues = this.createRandomValues();
         this.setState({
@@ -150,6 +159,17 @@ class Container extends React.Component {
             exactMatches10: exact10
         })
     }
+    getExactMatches11 = (exact11) => {
+        this.setState({
+            exactMatches11: exact11
+        })
+    }
+    getExactMatches12 = (exact12) => {
+        this.setState({
+            exactMatches12: exact12
+        })
+    }
+
     getValueMatches = (value) => {
         this.setState({
             valueMatches: value
@@ -200,6 +220,16 @@ class Container extends React.Component {
             valueMatches10: value10
         })
     }
+    getValueMatches11 = (value11) => {
+        this.setState({
+            valueMatches11: value11
+        })
+    }
+    getValueMatches12 = (value12) => {
+        this.setState({
+            valueMatches12: value12
+        })
+    }
     createRandomValues = (length = 4, max = 5) => {
         return Array.apply(null, Array(length)).map(function () {
             let randomizedValues = Math.round((Math.random() * max) + 1);
@@ -215,9 +245,9 @@ class Container extends React.Component {
         let duckRow = [];
         console.log('exactMatches1', this.state.exactMatches);
         console.log('exactMatches2', this.state.exactMatches2);
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 12; i++) {
             duckRow.push(
-                <div className="pegs-duck" key={`row${i}`}>
+                <div className="pegs-duck" key={`chance${i}`}>
                     <div className="pegRow">
                         <DecodeRow
                             key={i}
@@ -254,12 +284,17 @@ class Container extends React.Component {
                             valueMatches9={this.state.valueMatches9}
                             exactMatches10={this.state.exactMatches10}
                             valueMatches10={this.state.valueMatches10}
+                            exactMatches11={this.state.exactMatches11}
+                            valueMatches11={this.state.valueMatches11}
+                            exactMatches12={this.state.exactMatches12}
+                            valueMatches12={this.state.valueMatches12}
                         />
                     </div>
                     <div className={(this.state.activatedDuck === (i + 1)) ? 'checkbtn' : 'hide'}>
                         <Check
                             key={`btn${i}`}
                             id={i + 1}
+                            showCompleted={this.showCompleted}
                             exactMatches={this.state.exactMatches}
                             valueMatches={this.state.valueMatches}
                             getValueMatches={this.getValueMatches}
@@ -282,6 +317,10 @@ class Container extends React.Component {
                             getValueMatches9={this.getValueMatches9}
                             getExactMatches10={this.getExactMatches10}
                             getValueMatches10={this.getValueMatches10}
+                            getExactMatches11={this.getExactMatches11}
+                            getValueMatches11={this.getValueMatches11}
+                            getExactMatches12={this.getExactMatches12}
+                            getValueMatches12={this.getValueMatches12}
                             randomArr={this.state.randomArr}
                             injectedPicks={this.state.injectedPicks}
                             increamentDuck={this.increamentDuck}
@@ -296,8 +335,17 @@ class Container extends React.Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-xs-12 col-sm-10 col-md-6 col-lg-4 mx-auto">
-                        {duckRow}
+                    <div className="col-xs-12 col-sm-10 col-md-6 col-lg-5 mx-auto">
+                        <div className="duck-row">
+                            {duckRow}
+                        </div>
+                    </div>
+                    <div className="col-md-6 ">
+                        <div className="md-sidepegs">
+                            <SidePegs updatetoinject={this.updateInjection} />
+                        </div>
+                    </div>
+                    <div className="sm-sidepegs">
                         <SidePegs updatetoinject={this.updateInjection} />
                     </div>
                 </div>
