@@ -1,5 +1,4 @@
 import React from 'react';
-import '../css/Peg.css';
 
 class Peg extends React.Component {
     constructor(props) {

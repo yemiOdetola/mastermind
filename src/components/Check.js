@@ -142,14 +142,53 @@ class Check extends React.Component {
                 this.props.getValueMatches12(valMatchLength12);
             }
         } else {
-           return 0;
+            return 0;
         }
     }
 
     increamentDuck() {
-        if(this.props.activatedDuck === 12) {
-            this.props.showCompleted(true);
+        if (this.props.activatedDuck === 12) {
+            this.props.updateGamelost(true);
         }
+        setTimeout(() => {
+            if (this.props.exactMatches === 4) {
+                this.props.updateGameWon(true);
+            }
+            if (this.props.exactMatches2 === 4) {
+                this.props.updateGameWon(true);
+            }
+            if (this.props.exactMatches3 === 4) {
+                this.props.updateGameWon(true);
+            }
+            if (this.props.exactMatches4 === 4) {
+                this.props.updateGameWon(true);
+            }
+            if (this.props.exactMatches5 === 4) {
+                this.props.updateGameWon(true);
+            }
+            if (this.props.exactMatches6 === 4) {
+                this.props.updateGameWon(true);
+            }
+            if (this.props.exactMatches7 === 4) {
+                this.props.updateGameWon(true);
+            }
+            if (this.props.exactMatches8 === 4) {
+                this.props.updateGameWon(true);
+            }
+            if (this.props.exactMatches9 === 4) {
+                this.props.updateGameWon(true);
+            }
+            if (this.props.exactMatches10 === 4) {
+                this.props.updateGameWon(true);
+            }
+            if (this.props.exactMatches11 === 4) {
+                this.props.updateGameWon(true);
+            }
+            if (this.props.exactMatches12 === 4) {
+                this.props.updateGameWon(true);
+            }
+        }, 0);
+        console.log(this.props.getExactMatches);
         this.setState({
             currentDuck: this.props.activatedDuck + 1
         })

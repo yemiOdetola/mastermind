@@ -3,11 +3,16 @@ import DecodeRow from './DecodeRow';
 import { SidePegs } from './SidebarCover';
 import Check from './Check';
 import { IndicatorGroup } from './Indicator';
+import { GameStatus } from './GameStatus';
+import '../css/Peg.css';
 
 class Container extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            updateGameStatus: true,
+            gameWon: false,
+            gameLost: false,
             showVal: false,
             toInjectColor: '',
             toInjectValue: '',
@@ -17,7 +22,6 @@ class Container extends React.Component {
             randomArr: [],
             isEditable: false,
             activatedDuck: 1,
-            livesUp: false,
             indicatedId: 1,
             buttonStyle: 'btn btn-small',
             exactMatches: 0,
@@ -61,6 +65,19 @@ class Container extends React.Component {
             toInjectValue: value
         })
     }
+    updateGameWon = (update) => {
+        this.setState({
+            gameWon: update,
+            gameLost: false
+        })
+    }
+
+    updateGamelost = (update) => {
+        this.setState({
+            gameLost: update,
+            gameWon: false
+        })
+    }
 
     getInjected(value) {
         this.setState(prevState => ({
@@ -93,11 +110,6 @@ class Container extends React.Component {
                 })
             }
         }
-    }
-    showCompleted = (ret) => {
-        this.setState({
-            livesUp: ret
-        })
     }
     setRandomToState() {
         let randomValues = this.createRandomValues();
@@ -169,7 +181,6 @@ class Container extends React.Component {
             exactMatches12: exact12
         })
     }
-
     getValueMatches = (value) => {
         this.setState({
             valueMatches: value
@@ -294,9 +305,9 @@ class Container extends React.Component {
                         <Check
                             key={`btn${i}`}
                             id={i + 1}
-                            showCompleted={this.showCompleted}
-                            exactMatches={this.state.exactMatches}
                             valueMatches={this.state.valueMatches}
+                            updateGameWon={this.updateGameWon}
+                            updateGamelost={this.updateGamelost}
                             getValueMatches={this.getValueMatches}
                             getExactMatches={this.getExactMatches}
                             getExactMatches2={this.getExactMatches2}
@@ -321,6 +332,18 @@ class Container extends React.Component {
                             getValueMatches11={this.getValueMatches11}
                             getExactMatches12={this.getExactMatches12}
                             getValueMatches12={this.getValueMatches12}
+                            exactMatches={this.state.exactMatches}
+                            exactMatches2={this.state.exactMatches2}
+                            exactMatches3={this.state.exactMatches3}
+                            exactMatches4={this.state.exactMatches4}
+                            exactMatches5={this.state.exactMatches5}
+                            exactMatches6={this.state.exactMatches6}
+                            exactMatches7={this.state.exactMatches7}
+                            exactMatches8={this.state.exactMatches8}
+                            exactMatches9={this.state.exactMatches9}
+                            exactMatches10={this.state.exactMatches10}
+                            exactMatches11={this.state.exactMatches11}
+                            exactMatches12={this.state.exactMatches12}
                             randomArr={this.state.randomArr}
                             injectedPicks={this.state.injectedPicks}
                             increamentDuck={this.increamentDuck}
@@ -333,14 +356,20 @@ class Container extends React.Component {
             )
         }
         return (
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
-                    <div className="col-xs-12 col-sm-10 col-md-6 offset-md-3 offset-xl-4 col-lg-5 col-xl-4 p-0">
+                    <div className="ml-auto col-xs-12 col-sm-10 col-md-6 col-lg-5 col-xl-4 p-0">
                         <div className="duck-row">
                             {duckRow}
                         </div>
+                        <div className={(this.state.gameWon || this.state.gameLost) ? "game-status" : 'hide'}>
+                            <GameStatus
+                                gameWon={this.state.gameWon}
+                                gameLost={this.state.gameLost}
+                            />
+                        </div>
                     </div>
-                    <div className="col-md-1">
+                    <div className="mr-auto col-md-1">
                         <div className="md-sidepegs">
                             <SidePegs updatetoinject={this.updateInjection} />
                         </div>

@@ -123,3 +123,53 @@
   display: flex;
   justify-content: space-between;
 }
+.game-status {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  z-index: 999;
+}
+.game-status-body {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 93%;
+  max-height: 80vh;
+  background: #fff;
+  border-radius: 4px;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.game-status-body .instruction {
+  font-size: 0.8875rem;
+  margin-bottom: 1rem;
+}
+.game-status-body-header {
+  margin: 0px -20px;
+  padding: 0 1rem 1em;
+  border-bottom: 1px solid #d3d9d8;
+  color: #000000;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+.game-status-body-content {
+  padding: 1rem 0;
+  height: max-content;
+  overflow-y: auto;
+}
+@media (max-width: 767px) {
+  .game-status-body {
+    top: 45%;
+    width: 85%;
+  }
+}
+@media (min-width: 768px) {
+  .game-status-body {
+    max-width: 60%;
+  }
+}
