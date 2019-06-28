@@ -1,3 +1,6 @@
+button:active {
+  outline: none;
+}
 .emptyPeg {
   margin: 5px;
   display: inline-block;
@@ -162,14 +165,80 @@
   height: max-content;
   overflow-y: auto;
 }
+.submit-btn {
+  width: 3rem;
+  height: 2rem;
+  background: none;
+  border: none;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-left: 4px solid #000;
+  font-size: 0.75rem;
+  color: #000;
+  font-weight: 500;
+  border-radius: 2px;
+}
+.submit-btn.null-found {
+  cursor: not-allowed;
+}
+.submit-btn:hover {
+  cursor: pointer;
+}
+.indicatorGroup {
+  margin-right: 0.5rem;
+}
 @media (max-width: 767px) {
   .game-status-body {
     top: 45%;
     width: 85%;
   }
+  .hide-xs {
+    display: none;
+  }
 }
 @media (min-width: 768px) {
   .game-status-body {
     max-width: 60%;
+  }
+}
+
+.pegRow.shake {
+  animation: shake 0.4s;
+  animation-iteration-count: 0.5s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -2px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 2px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -2px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
   }
 }

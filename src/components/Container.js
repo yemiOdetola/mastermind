@@ -13,6 +13,7 @@ class Container extends React.Component {
             updateGameStatus: true,
             gameWon: false,
             gameLost: false,
+            unmatched: false,
             showVal: false,
             toInjectColor: '',
             toInjectValue: '',
@@ -23,7 +24,7 @@ class Container extends React.Component {
             isEditable: false,
             activatedDuck: 1,
             indicatedId: 1,
-            buttonStyle: 'btn btn-small',
+            buttonStyle: 'submit-btn',
             exactMatches: 0,
             valueMatches: 0,
             exactMatches2: 0,
@@ -100,13 +101,13 @@ class Container extends React.Component {
         })
         let pickedCol = this.state.injectedPicks;
         for (let val = 0; val < pickedCol.length; val++) {
-            if (pickedCol[val] === 0) {
+            if (pickedCol[val] === 0 || pickedCol[val] === '') {
                 this.setState({
-                    buttonStyle: 'btn btn-small btn-disabled'
+                    buttonStyle: 'submit-btn null-found'
                 })
             } else {
                 this.setState({
-                    buttonStyle: 'btn btn-small btn-success'
+                    buttonStyle: 'submit-btn'
                 })
             }
         }
@@ -117,10 +118,16 @@ class Container extends React.Component {
             randomArr: randomValues
         })
     }
-    // Can't seem to find a way to make my exact and value matches in the indicator component           distinct...They keep overriding each other...Would appreciate a hint if I haven't.
-    // This isn't suppose to be but..it is what it is...basics, its manually done from 84 - 183
+    notMatched = (update) => {
+        this.setState({
+            unmatched: update
+        })
+    }
 
-
+    // Can't seem to find a way to make my exact and value matches in the indicator component distinct...They keep overriding each other..
+    // This isn't suppose to be, but...it is what it is...basics, its manually done from 84 - 183
+    // shit went aheadto affect other components, need to write all *sobs*... It is what it is... refactor soon.
+    // .Would appreciate a hint from you if I haven't figured it out.
     getExactMatches = (exact) => {
         this.setState({
             exactMatches: exact
@@ -254,12 +261,13 @@ class Container extends React.Component {
 
     render() {
         let duckRow = [];
-        console.log('exactMatches1', this.state.exactMatches);
-        console.log('exactMatches2', this.state.exactMatches2);
         for (let i = 0; i < 12; i++) {
             duckRow.push(
                 <div className="pegs-duck" key={`chance${i}`}>
-                    <div className="pegRow">
+                    <div className={(this.state.unmatched
+                        && (this.state.activatedDuck !== (i + 1))
+                        && ((i + 1) < this.state.activatedDuck))
+                        ? "pegRow shake" : "pegRow"}>
                         <DecodeRow
                             key={i}
                             injectedValue={this.state.toInjectValue}
@@ -270,7 +278,7 @@ class Container extends React.Component {
                             activatedDuck={this.state.activatedDuck}
                         />
                     </div>
-                    <div className={(this.state.activatedDuck !== (i + 1)) ? '' : 'hide'}>
+                    <div className={(this.state.activatedDuck !== (i + 1)) ? 'indicatorGroup' : 'hide'}>
                         <IndicatorGroup
                             indicatorId={i + 1}
                             key={`indicator${i}`}
@@ -308,6 +316,7 @@ class Container extends React.Component {
                             valueMatches={this.state.valueMatches}
                             updateGameWon={this.updateGameWon}
                             updateGamelost={this.updateGamelost}
+                            notMatched={this.notMatched}
                             getValueMatches={this.getValueMatches}
                             getExactMatches={this.getExactMatches}
                             getExactMatches2={this.getExactMatches2}
@@ -358,16 +367,19 @@ class Container extends React.Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="ml-auto col-xs-12 col-sm-10 col-md-6 col-lg-5 col-xl-4 p-0">
+                    <div className="hide-xs col-md-3 col-lg-3 col-xl-4">
+
+                    </div>
+                    <div className="col-xs-12 col-sm-10 col-md-6 col-lg-5 col-xl-3 p-0">
                         <div className="duck-row">
                             {duckRow}
                         </div>
-                        <div className={(this.state.gameWon || this.state.gameLost) ? "game-status" : 'hide'}>
-                            <GameStatus
-                                gameWon={this.state.gameWon}
-                                gameLost={this.state.gameLost}
-                            />
-                        </div>
+                    </div>
+                    <div className={(this.state.gameWon || this.state.gameLost) ? "game-status" : 'hide'}>
+                        <GameStatus
+                            gameWon={this.state.gameWon}
+                            gameLost={this.state.gameLost}
+                        />
                     </div>
                     <div className="mr-auto col-md-1">
                         <div className="md-sidepegs">

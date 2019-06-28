@@ -37,7 +37,6 @@ export class IndicatorGroup extends React.Component {
         let valueMatches11= this.props.valueMatches11;
         let exactMatches12= this.props.exactMatches12;
         let valueMatches12= this.props.valueMatches12;
-        console.log(exactMatches);
         let updateIndicators = (i) => {
             keyVal = `ndctr${i}`;
             indicatorStyle = 'indicator';
@@ -204,7 +203,6 @@ export class Indicator extends React.Component {
     }
 
     render() {
-        console.log('indd from in group', this.props.indd);
         return (
             <div
                 className={this.props.indicatorStyle}

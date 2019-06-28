@@ -153,42 +153,65 @@ class Check extends React.Component {
         setTimeout(() => {
             if (this.props.exactMatches === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
             if (this.props.exactMatches2 === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
             if (this.props.exactMatches3 === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
             if (this.props.exactMatches4 === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
             if (this.props.exactMatches5 === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
             if (this.props.exactMatches6 === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
             if (this.props.exactMatches7 === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
             if (this.props.exactMatches8 === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
             if (this.props.exactMatches9 === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
             if (this.props.exactMatches10 === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
             if (this.props.exactMatches11 === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
             if (this.props.exactMatches12 === 4) {
                 this.props.updateGameWon(true);
+            } else {
+                this.props.notMatched(true)
             }
         }, 0);
-        console.log(this.props.getExactMatches);
         this.setState({
             currentDuck: this.props.activatedDuck + 1
         })
@@ -203,21 +226,20 @@ class Check extends React.Component {
                 statePicks: this.props.injectedPicks
             })
         }
-        console.log('stateRandomArray', this.state.stateRandomArray);
     }
 
     render() {
         let stateRandomArrayCopy = this.state.stateRandomArray.slice();
         let stateInjectedPicksCopy = this.state.statePicks.slice();
         return (
-            <button className={(this.props.activatedDuck === this.props.id) ? this.props.buttonStyle : 'btn btn-small btn-default'}
+            <button className={(this.props.activatedDuck === this.props.id) ? this.props.buttonStyle : 'submit-btn'}
                 disabled={this.props.activatedDuck !== this.props.id}
                 onClick={(e) => {
                     this.findIntersection(stateRandomArrayCopy, stateInjectedPicksCopy)
                     this.findMatch(stateRandomArrayCopy, stateInjectedPicksCopy)
                     this.increamentDuck()
                 }
-                }>Click</button>
+                }>Done</button>
         )
     }
 }
