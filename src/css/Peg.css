@@ -166,8 +166,8 @@ button:active {
   overflow-y: auto;
 }
 .submit-btn {
-  width: 3rem;
-  height: 2rem;
+  width: 3.5rem;
+  height: 2.25rem;
   background: none;
   border: none;
   background-color: #fff;
@@ -179,19 +179,31 @@ button:active {
   border-radius: 2px;
 }
 .close-modal {
-  position: relative;
+  position: absolute;
   float: right;
   width: 50px;
   height: 50px;
-  background-color: #fff;
-  bottom: 35px;
-  left: 14px;
+  background-color: #673ab7;
+  top: -1.45rem;
+  right: -1.35rem;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px;
-  box-shadow: 1px 1px 6px #d4d5d9;
+  box-shadow: 1px 1px 3px rgb(93, 79, 168);
   border-radius: 50%;
+}
+.close-modal:hover {
+  cursor: pointer;
+}
+.close-modal svg * {
+  width: 1.125rem;
+  fill: #fff;
+}
+.sub-title {
+  font-size: 0.935rem;
+  color: rgb(105, 105, 105);
+  text-align: center;
 }
 .submit-btn.null-found {
   cursor: not-allowed;
@@ -202,6 +214,54 @@ button:active {
 .indicatorGroup {
   margin-right: 0.5rem;
 }
+.emoji-cover {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.emoji-cover img {
+  width: 5rem;
+  height: 5rem;
+}
+.game-lost, .game-won {
+  background-color: #f6f9fc;
+  padding: 1rem;
+}
+.modal-title {
+  font-size: 1.75rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  color: #333;
+  text-shadow: 1px 1px #000;
+}
+.primary-btn {
+  padding: 0.65rem 3rem;
+  background: none;
+  font-size: 0.935rem;
+  background: #3f51b5;
+  display: block;
+  margin: 1rem auto 0;
+  border: none;
+  color: #fff;
+  -webkit-transition: background-color 0.4s, color 0.4s;
+  transition: background-color 0.4s, color 0.4s;
+}
+.primary-btn:hover {
+  -webkit-transition: background-color 0.1s 0.4s, color 0.1s 0.4s;
+  transition: background-color 0.1s 0.4s, color 0.1s 0.4s;
+  color: #eceff1;
+  background-color: #5c2fa5;
+  -webkit-animation: moema 0.4s forwards;
+  animation: moema 0.4s forwards;
+  cursor: pointer;
+}
+
+.pegRow.shake {
+  animation: shake 0.4s;
+  animation-iteration-count: 0.5s;
+}
+
 @media (max-width: 767px) {
   .game-status-body {
     top: 45%;
@@ -213,13 +273,13 @@ button:active {
 }
 @media (min-width: 768px) {
   .game-status-body {
-    max-width: 60%;
+    max-width: 35%;
   }
 }
-
-.pegRow.shake {
-  animation: shake 0.4s;
-  animation-iteration-count: 0.5s;
+@media (min-width: 1200px) {
+  .game-status-body {
+    max-width: 25%;
+  }
 }
 
 @keyframes shake {
@@ -255,5 +315,20 @@ button:active {
   }
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@keyframes moema {
+  60% {
+    -webkit-transform: scale3d(0.7, 0.7, 1);
+    transform: scale3d(0.7, 0.7, 1);
+  }
+  85% {
+    -webkit-transform: scale3d(1.1, 1.1, 1);
+    transform: scale3d(1.1, 1.1, 1);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
