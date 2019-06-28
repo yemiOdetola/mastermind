@@ -239,7 +239,7 @@ class Check extends React.Component {
                     this.findMatch(stateRandomArrayCopy, stateInjectedPicksCopy)
                     this.increamentDuck()
                 }
-                }>Done</button>
+                }>OK</button>
         )
     }
 }
