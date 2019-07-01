@@ -205,9 +205,9 @@ button:active {
   color: rgb(105, 105, 105);
   text-align: center;
 }
-.submit-btn.null-found {
+/* .submit-btn.null-found {
   cursor: not-allowed;
-}
+} */
 .submit-btn:hover {
   cursor: pointer;
 }
@@ -226,6 +226,9 @@ button:active {
 .game-lost, .game-won {
   background-color: #f6f9fc;
   padding: 1rem;
+}
+.game-won.white-bg {
+  background-color: #fff;
 }
 .modal-title {
   font-size: 1.75rem;
@@ -258,8 +261,8 @@ button:active {
 }
 
 .pegRow.shake {
-  animation: shake 0.4s;
-  animation-iteration-count: 0.5s;
+  animation: head-shake 0.4s;
+  animation-iteration-count: 0.7s;
 }
 
 @media (max-width: 767px) {
@@ -315,6 +318,24 @@ button:active {
   }
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@keyframes head-shake {
+  0%{
+    transform: translateX(-3px);
+  }
+  25%{
+    transform: translateX(7px);
+  }
+  50%{
+    transform: translateX(-7px);
+  }
+  75%{
+    transform: translateX(7px);
+  }
+  100%{
+    transform: translateX(1px);
   }
 }
 

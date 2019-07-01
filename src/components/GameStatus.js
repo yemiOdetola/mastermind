@@ -27,7 +27,7 @@ export class GameStatus extends React.Component {
         return (
             <div className="game-status">
                 <div className="game-status-body">
-                    <div className="close-modal">
+                    <div className="close-modal" onClick={() => { this.props.restartGame() }}>
                         <svg
                             width="18px"
                             height="18px"
@@ -46,13 +46,15 @@ export class GameStatus extends React.Component {
                             </g>
                         </svg>
                     </div>
-                    <div className={this.state.gameWon ? 'game-won' : 'hide'}>
+                    <div className={this.state.gameWon ? 'game-won white-bg' : 'hide'}>
                         <div className="modal-title">You Won!</div>
                         <p className="sub-title"><span role="img" aria-label="raised hands">&#x1F64C; </span> wawu <span role="img" aria-label="raised hands"> &#x1F64C;</span>... I hail thee</p>
                         <div className="emoji-cover">
                             <img src="/images/applaud.gif" alt="sorry" />
                         </div>
-                        <button className="primary-btn">Replay</button>
+                        <button onClick={() => {
+                            this.props.restartGame()
+                        }} className="primary-btn">Replay</button>
                     </div>
                     <div className={this.state.gameLost ? 'game-lost' : 'hide'}>
                         <div className="modal-title">Game Over!</div>
@@ -60,7 +62,9 @@ export class GameStatus extends React.Component {
                         <div className="emoji-cover">
                             <img src="/images/tenor.gif" alt="sorry" />
                         </div>
-                        <button className="primary-btn">Replay</button>
+                        <button onClick={() => {
+                            this.props.restartGame()
+                        }} className="primary-btn">Replay</button>
                     </div>
                 </div>
             </div >
