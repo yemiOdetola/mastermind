@@ -10,11 +10,9 @@ class Container extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            updateGameStatus: true,
             gameWon: false,
             gameLost: false,
             unmatched: false,
-            showVal: false,
             toInjectColor: '',
             toInjectValue: '',
             paintedVal: '',
@@ -49,8 +47,6 @@ class Container extends React.Component {
             valueMatches11: 0,
             exactMatches12: 0,
             valueMatches12: 0
-
-
         }
         this.updateInjection = this.updateInjection.bind(this);
         this.getInjected = this.getInjected.bind(this);
@@ -122,6 +118,10 @@ class Container extends React.Component {
         this.setState({
             unmatched: update
         })
+    }
+
+    restartGame = () => {
+        window.location.reload();
     }
 
     // Can't seem to find a way to make my exact and value matches in the indicator component distinct...They keep overriding each other..
@@ -379,6 +379,7 @@ class Container extends React.Component {
                         <GameStatus
                             gameWon={this.state.gameWon}
                             gameLost={this.state.gameLost}
+                            restartGame={this.restartGame}
                         />
                     </div>
                     <div className="mr-auto col-md-1">

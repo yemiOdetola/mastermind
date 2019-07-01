@@ -234,7 +234,7 @@ class Check extends React.Component {
         return (
             <button className={(this.props.activatedDuck === this.props.id) ? this.props.buttonStyle : 'submit-btn'}
                 disabled={this.props.activatedDuck !== this.props.id}
-                onClick={(e) => {
+                onClick={() => {
                     this.findIntersection(stateRandomArrayCopy, stateInjectedPicksCopy)
                     this.findMatch(stateRandomArrayCopy, stateInjectedPicksCopy)
                     this.increamentDuck()
