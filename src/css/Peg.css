@@ -16,7 +16,23 @@ button:active {
 .colorNull {
   background-color: #ffffff;
 }
-
+.color-pallete {
+  border-bottom: 7px solid rgba(0, 0, 0, 0.1);
+  transition-duration: 0.25s;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+.color-pallete:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  border-bottom: 0.625rem solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.625rem 0.625rem rgba(0, 0, 0, 0.2);
+}
+.color-pallete:focus {
+  -webkit-transform: scale(1.2) translateY(-0.5rem);
+  transform: scale(1.2) translateY(-0.5rem);
+  box-shadow: 0 0.625rem 0.625rem rgba(0, 0, 0, 0.2);
+  border-bottom: 1.5rem solid rgba(0, 0, 0, 0.15);
+}
 .color1 {
   background-color: #fbc02d;
   border-color: #fbc02d;
@@ -223,7 +239,8 @@ button:active {
   width: 5rem;
   height: 5rem;
 }
-.game-lost, .game-won {
+.game-lost,
+.game-won {
   background-color: #f6f9fc;
   padding: 1rem;
 }
@@ -322,19 +339,19 @@ button:active {
 }
 
 @keyframes head-shake {
-  0%{
+  0% {
     transform: translateX(-3px);
   }
-  25%{
+  25% {
     transform: translateX(7px);
   }
-  50%{
+  50% {
     transform: translateX(-7px);
   }
-  75%{
+  75% {
     transform: translateX(7px);
   }
-  100%{
+  100% {
     transform: translateX(1px);
   }
 }

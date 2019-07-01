@@ -27,7 +27,7 @@ export class EachSidePeg extends React.Component {
     render() {
         return (
             <div
-                className={`emptyPeg ${this.props.indexcolor}`}
+                className={`emptyPeg color-pallete ${this.props.indexcolor}`}
                 onClick={this.copyColorProperty}
                 indexvalue={this.props.indexvalue}>
             </div>

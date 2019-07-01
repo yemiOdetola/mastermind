@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Container from '../src/components/Container';
-// import logo from './logo.svg';
-import './css/App.css';
+import Explore from '../src/components/Explore';
 class App extends Component {
   render() {
     return (
-      <Container />
+      <div>
+        <Router>
+          <Route path="/" exact component={Explore} />
+          <Route path="/mastermind" component={Container} />
+        </Router>
+        {/* <Container /> */}
+      </div>
     );
   }
 }
