@@ -90,7 +90,11 @@ class Container extends React.Component {
 
         })
     }
-
+    resetPicks = (ooPicks) => {
+        this.setState({
+            injectedPicks: ooPicks
+        })
+    }
     getPicks(picks) {
         this.setState({
             injectedPicks: picks
@@ -317,6 +321,7 @@ class Container extends React.Component {
                             updateGameWon={this.updateGameWon}
                             updateGamelost={this.updateGamelost}
                             notMatched={this.notMatched}
+                            resetPicks={this.resetPicks}
                             getValueMatches={this.getValueMatches}
                             getExactMatches={this.getExactMatches}
                             getExactMatches2={this.getExactMatches2}

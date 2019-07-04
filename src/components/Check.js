@@ -147,9 +147,11 @@ class Check extends React.Component {
     }
 
     increamentDuck() {
+        let emptyPicks = [0, 0, 0, 0];
         if (this.props.activatedDuck === 12) {
             this.props.updateGamelost(true);
         }
+        this.props.resetPicks(emptyPicks);
         setTimeout(() => {
             if (this.props.exactMatches === 4) {
                 this.props.updateGameWon(true);
