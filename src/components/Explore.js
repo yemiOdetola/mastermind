@@ -79,7 +79,7 @@ export default class Explore extends React.Component {
                             <img src="/images/octocat.png" alt="octocat" />
                         </p>
                         <p>Inspired by <a href="https://twitter.com/intuitio" rel="noopener noreferrer" target="_blank">@intuitio</a></p>
-                        <div>Made with <span role="img" aria-label="raised hands">&#x1F64C; </span> by <a href="https://twitter.com/yemiOtola" rel="noopener noreferrer" target="_blank">@yemiotola</a></div>
+                        <div>Made with <span role="img" aria-label="raised hands">&#x2764; </span> by <a href="https://twitter.com/yemiOtola" rel="noopener noreferrer" target="_blank">@yemiotola</a></div>
                     </div>
                     <button className="info-btn" onClick={() => {
                         this.setState({
