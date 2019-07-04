@@ -43,11 +43,26 @@
 .actions {
   margin: 2rem auto;
 }
-.instructions {
+.more-info {
   position: absolute;
   bottom: 1rem;
-  right: 0.5rem;
+  right: 1rem;
 }
+.more-info .code-details {
+  background: #fff;
+  border-radius: 1.5rem 1.5rem 1.5rem 0;
+  padding: 0.935rem;
+  margin-right: 0.75rem;
+  position: absolute;
+  right: 3rem;
+  bottom: 0rem;
+  width: max-content;
+  font-size: 0.935rem;
+}
+.code-details .source-code img {
+  width: 1.25rem;
+}
+
 .how-to {
   padding: 2rem 1.25rem;
 }
@@ -55,18 +70,21 @@
   text-align: justify;
   margin: 0.75rem;
 }
-button.instruct {
+button.info-btn {
   font-family: "Barriecito", cursive;
-  font-size: 2rem;
+  font-size: 1.45rem;
   border: none;
   background: none;
+  outline: none;
   background: #111;
   color: #fff;
   border-radius: 50%;
   width: 3.125rem;
+  height: 3.125rem;
   font-weight: 500;
+  cursor: pointer;
 }
-.actions button.action {
+.actions .action {
   display: block;
   border: none;
   background-color: none;
@@ -82,29 +100,31 @@ button.instruct {
   position: relative;
   transition: position 0.1s ease-in-out;
 }
-button.action.primary {
+.action.primary {
   background-color: #272221;
   box-shadow: 0 0.4rem #3b3433;
   color: #fff;
+  text-decoration: none;
+  text-align: center;
 }
-button.action.secondary {
+.action.secondary {
   background-color: #fff;
   border: 1px solid #dddddd;
   color: #333;
 }
-button.action.primary:hover {
+.action.primary:hover {
   top: 0.125rem;
   box-shadow: 0 0.25rem #47403f;
 }
-button.action.primary a {
+.action.primary a {
   color: #fff;
   text-decoration: none;
 }
-button.action.primary:active {
+.action.primary:active {
   box-shadow: none;
   top: 0.25rem;
 }
-@media(max-width: 576px) {
+@media (max-width: 576px) {
   .how-to-body {
     height: 70vh;
     overflow-y: scroll;
@@ -117,12 +137,12 @@ button.action.primary:active {
   .name.explore {
     font-size: 5rem;
   }
-  .button.instruct {
+  .button.info-btn {
     font-size: 2.5rem;
     width: 4rem;
     font-weight: 500;
   }
-  .instructions {
+  .more-info {
     right: 2rem;
     bottom: 2rem;
   }
@@ -133,7 +153,7 @@ button.action.primary:active {
     max-width: 80%;
   }
 }
-@media(min-width: 1200px) {
+@media (min-width: 1200px) {
   .game-status-body.how-to {
     max-width: 60%;
   }

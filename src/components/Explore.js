@@ -6,7 +6,8 @@ export default class Explore extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            gameRules: false
+            gameRules: false,
+            codeDetails: false
         }
     }
 
@@ -22,7 +23,7 @@ export default class Explore extends React.Component {
                             Heyy! <span role="img" aria-label="waving"> &#x1F44B;</span>, would you like to
                         </div>
                         <div className="actions">
-                            <button className="action primary"><Link to="/mastermind"> Play  Now </Link></button>
+                            <Link className="action primary" to="/mastermind"> Play  Now </Link>
                             <button className="action secondary" onClick={
                                 () => {
                                     this.setState({
@@ -32,9 +33,6 @@ export default class Explore extends React.Component {
                             }>See Rules</button>
                         </div>
                     </div>
-                </div>
-                <div className="instructions">
-                    <button className="instruct">i</button>
                 </div>
                 <div className={this.state.gameRules ? "game-status fade-in" : "hide"}>
                     <div className="game-status-body how-to">
@@ -65,14 +63,30 @@ export default class Explore extends React.Component {
                         </div>
                         <div className="how-to-body">
                             <div className="modal-title">GAME RULES</div>
-                            <p className="mt-4">Basically, a secret color code "4" has been generated for each game. The aim is to guess the color code in the right pattern (both color and port) in 10 attempts.</p>
+                            <p className="mt-4">Basically, a "4" secret color code has been generated for each game. The aim is to guess the color code in the right pattern (both color and port) in 10 attempts.</p>
                             <p>You'll be provided with 6 colors to choose from for your guess. The secret color code is generated from the 6-colors too. Duplicates are allowed, so the four secret color code might even be the same color.</p>
                             <p>After submitting your guess in each instance, a color in the right position, gets you a green point. And a right color in the wrong position gets you a grey-like point.</p>
                             <br />
                             <p>Still curious? check this <a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)" rel="noopener noreferrer" target="_blank">wikipedia</a> page.</p>
                         </div>
                     </div>
-                </div >
+                </div>
+
+                <div className="more-info">
+                    <div className={this.state.codeDetails ? "code-details fade-in" : "hide"}>
+                        <p className="source-code">
+                            <a href="https://github.com/blarcmann/mastermind" rel="noopener noreferrer" target="_blank">Source Code </a>
+                            <img src="/images/octocat.png" alt="octocat" />
+                        </p>
+                        <p>Inspired by <a href="https://twitter.com/intuitio" rel="noopener noreferrer" target="_blank">@intuitio</a></p>
+                        <div>Made with <span role="img" aria-label="raised hands">&#x1F64C; </span> by <a href="https://twitter.com/yemiOtola" rel="noopener noreferrer" target="_blank">@yemiotola</a></div>
+                    </div>
+                    <button className="info-btn" onClick={() => {
+                        this.setState({
+                            codeDetails: !this.state.codeDetails
+                        })
+                    }}>i</button>
+                </div>
             </div>
 
         )

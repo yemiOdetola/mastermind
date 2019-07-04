@@ -119,21 +119,6 @@ button:active {
   }
 }
 
-@media (min-width: 768px) {
-  .sm-sidepegs {
-    display: none;
-  }
-  .md-sidepegs {
-    position: relative;
-  }
-  .side-pegs {
-    position: fixed;
-    display: inline-grid;
-    justify-content: flex-start;
-    transform: translate(50%, 50%);
-  }
-}
-
 .hide {
   display: none;
 }
@@ -150,7 +135,7 @@ button:active {
   top: 0;
   z-index: 999;
 }
-.name a{
+.name a {
   font-size: 2rem;
   color: #111;
   text-decoration: none;
@@ -204,14 +189,14 @@ button:active {
   float: right;
   width: 50px;
   height: 50px;
-  background-color: #673ab7;
+  background-color: #111;
   top: -1.45rem;
   right: -1.35rem;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px;
-  box-shadow: 1px 1px 3px rgb(93, 79, 168);
+  box-shadow: 1px 1px 3px rgb(81, 81, 82);
   border-radius: 50%;
 }
 .close-modal:hover {
@@ -226,9 +211,6 @@ button:active {
   color: rgb(105, 105, 105);
   text-align: center;
 }
-/* .submit-btn.null-found {
-  cursor: not-allowed;
-} */
 .submit-btn:hover {
   cursor: pointer;
 }
@@ -303,7 +285,20 @@ button:active {
   .name {
     font-size: 2rem;
   }
+  .sm-sidepegs {
+    display: none;
+  }
+  .md-sidepegs {
+    position: relative;
+  }
+  .side-pegs {
+    position: fixed;
+    display: inline-grid;
+    justify-content: flex-start;
+    transform: translate(50%, 30%);
+  }
 }
+
 @media (min-width: 1200px) {
   .game-status-body {
     max-width: 25%;
@@ -318,41 +313,8 @@ button:active {
     position: relative;
     right: 2rem;
   }
-}
-
-@keyframes shake {
-  0% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-  40% {
-    transform: translate(1px, -2px) rotate(1deg);
-  }
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    transform: translate(-3px, 2px) rotate(0deg);
-  }
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-  80% {
-    transform: translate(-1px, -2px) rotate(1deg);
-  }
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
+  .side-pegs {
+    transform: translate(50%, 40%);
   }
 }
 
