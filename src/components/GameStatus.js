@@ -46,7 +46,7 @@ export class GameStatus extends React.Component {
                             </g>
                         </svg>
                     </div>
-                    <div className={this.state.gameWon ? 'game-won white-bg' : 'hide'}>
+                    <div className={this.state.gameWon ? 'game-won white-bg fade-in' : 'hide'}>
                         <div className="modal-title">You Won!</div>
                         <p className="sub-title"><span role="img" aria-label="raised hands">&#x1F64C; </span> wawu <span role="img" aria-label="raised hands"> &#x1F64C;</span>... I hail thee</p>
                         <div className="emoji-cover">
@@ -56,7 +56,7 @@ export class GameStatus extends React.Component {
                             this.props.restartGame()
                         }} className="primary-btn">Replay</button>
                     </div>
-                    <div className={this.state.gameLost ? 'game-lost' : 'hide'}>
+                    <div className={this.state.gameLost ? 'game-lost fade-in' : 'hide'}>
                         <div className="modal-title">Game Over!</div>
                         <p className="sub-title"><span role="img" aria-label="raised hands">&#x1F61C; </span>You've used up your chances. <span role="img" aria-label="raised hands"> &#x1F606;</span></p>
                         <div className="emoji-cover">
