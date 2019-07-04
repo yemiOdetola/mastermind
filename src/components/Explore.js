@@ -13,7 +13,7 @@ export default class Explore extends React.Component {
     render() {
         return (
             <div className="body-cover">
-                <div className="name">
+                <div className="name explore">
                     Mastermind
                 </div>
                 <div className="contain">
@@ -22,14 +22,14 @@ export default class Explore extends React.Component {
                             Heyy! <span role="img" aria-label="waving"> &#x1F44B;</span>, would you like to
                         </div>
                         <div className="actions">
-                            <button className="action primary"><Link to="/mastermind">Play a Game</Link></button>
+                            <button className="action primary"><Link to="/mastermind"> Play  Now </Link></button>
                             <button className="action secondary" onClick={
                                 () => {
                                     this.setState({
                                         gameRules: !(this.state.gameRules)
                                     })
                                 }
-                            }>Learn how</button>
+                            }>See Rules</button>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@ export default class Explore extends React.Component {
                             <p className="mt-4">Basically, a secret color code "4" has been generated for each game. The aim is to guess the color code in the right pattern (both color and port) in 10 attempts.</p>
                             <p>You'll be provided with 6 colors to choose from for your guess. The secret color code is generated from the 6-colors too. Duplicates are allowed, so the four secret color code might even be the same color.</p>
                             <p>After submitting your guess in each instance, a color in the right position, gets you a green point. And a right color in the wrong position gets you a grey-like point.</p>
-                            <br/>
+                            <br />
                             <p>Still curious? check this <a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)" rel="noopener noreferrer" target="_blank">wikipedia</a> page.</p>
                         </div>
                     </div>

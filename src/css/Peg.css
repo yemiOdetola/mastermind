@@ -150,6 +150,11 @@ button:active {
   top: 0;
   z-index: 999;
 }
+.name a{
+  font-size: 2rem;
+  color: #111;
+  text-decoration: none;
+}
 .game-status-body {
   position: absolute;
   top: 45%;
@@ -295,10 +300,23 @@ button:active {
   .game-status-body {
     max-width: 35%;
   }
+  .name {
+    font-size: 2rem;
+  }
 }
 @media (min-width: 1200px) {
   .game-status-body {
     max-width: 25%;
+  }
+  .name {
+    font-size: 3rem;
+  }
+  .pegs-duck {
+    justify-content: space-evenly;
+  }
+  .name.game {
+    position: relative;
+    right: 2rem;
   }
 }
 

@@ -6,9 +6,14 @@
 }
 .name {
   font-family: "Barriecito", cursive;
-  font-size: 3rem;
   font-weight: 600;
   text-align: center;
+}
+.name.explore {
+  font-size: 3rem;
+}
+.name.explore a {
+  color: #111;
 }
 .contain {
   height: 70%;
@@ -109,7 +114,7 @@ button.action.primary:active {
   .loose-cover {
     padding: 1.5rem 4rem 4rem;
   }
-  .name {
+  .name.explore {
     font-size: 5rem;
   }
   .button.instruct {
@@ -124,12 +129,12 @@ button.action.primary:active {
   .how-to-body p {
     font-size: 0.935rem;
   }
-  .game-status-body {
+  .game-status-body.how-to {
     max-width: 80%;
   }
 }
 @media(min-width: 1200px) {
-  .game-status-body {
+  .game-status-body.how-to {
     max-width: 60%;
   }
 }

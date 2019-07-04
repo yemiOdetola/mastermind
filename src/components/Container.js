@@ -265,7 +265,7 @@ class Container extends React.Component {
 
     render() {
         let duckRow = [];
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 10; i++) {
             duckRow.push(
                 <div className="pegs-duck" key={`chance${i}`}>
                     <div className={(this.state.unmatched
@@ -371,11 +371,15 @@ class Container extends React.Component {
         }
         return (
             <div className="container-fluid">
+                <div className="name">
+                    <div className="name game">
+                        <a href="/" rel="noopener noreferrer">Mastermind</a>
+                    </div>
+                </div>
                 <div className="row">
                     <div className="hide-xs col-md-3 col-lg-3 col-xl-4">
-
                     </div>
-                    <div className="col-xs-12 col-sm-10 col-md-6 col-lg-5 col-xl-3 p-0">
+                    <div className="col-xs-12 col-sm-10 col-md-6 col-lg-5 col-xl-4 p-0">
                         <div className="duck-row">
                             {duckRow}
                         </div>
