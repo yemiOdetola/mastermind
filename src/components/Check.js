@@ -75,7 +75,7 @@ class Check extends React.Component {
                 intersect[i] = 0;
             }
         }
-        console.log('a', a, 'b', b, 'alength', a.length, 'blength', b.length);
+        // console.log('a', a, 'b', b, 'alength', a.length, 'blength', b.length);
     }
     findMatch(a, b) {
         let foundMatches = [];

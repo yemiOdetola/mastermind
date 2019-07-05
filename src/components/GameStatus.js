@@ -48,7 +48,8 @@ export class GameStatus extends React.Component {
                     </div>
                     <div className={this.state.gameWon ? 'game-won white-bg fade-in' : 'hide'}>
                         <div className="modal-title">You Won!</div>
-                        <p className="sub-title"><span role="img" aria-label="raised hands">&#x1F64C; </span> wawu <span role="img" aria-label="raised hands"> &#x1F64C;</span>... I hail thee</p>
+                        <p className="sub-title"><span role="img" aria-label="raised hands">&#x1F64C; </span> wawuu <span role="img" aria-label="raised hands"> &#x1F64C;</span>... MindMaster <span role="img" aria-label="raised hands"> &#x1F44A;
+                        </span></p>
                         <div className="emoji-cover">
                             <img src="/images/applaud.gif" alt="sorry" />
                         </div>
@@ -58,7 +59,7 @@ export class GameStatus extends React.Component {
                     </div>
                     <div className={this.state.gameLost ? 'game-lost fade-in' : 'hide'}>
                         <div className="modal-title">Game Over!</div>
-                        <p className="sub-title"><span role="img" aria-label="raised hands">&#x1F61C; </span>You've used up your chances. <span role="img" aria-label="raised hands"> &#x1F606;</span></p>
+                        <p className="sub-title"><span role="img" aria-label="raised hands">&#x1F61C; </span>You've used up your chances. <span role="img" aria-label="raised hands"> &#x1F606;</span><span role="img" aria-label="raised hands"> &#x1F643;</span></p>
                         <div className="emoji-cover">
                             <img src="/images/tenor.gif" alt="sorry" />
                         </div>
