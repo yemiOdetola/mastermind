@@ -223,8 +223,12 @@ button:active {
   justify-content: center;
 }
 .emoji-cover img {
-  width: 5rem;
-  height: 5rem;
+  width: 7rem;
+  height: 6rem;
+}
+.emoji-cover img.game-l {
+  width: 6rem;
+  height: 6rem;
 }
 .game-lost,
 .game-won {

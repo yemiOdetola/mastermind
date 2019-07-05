@@ -386,6 +386,7 @@ class Container extends React.Component {
                     </div>
                     <div className={(this.state.gameWon || this.state.gameLost) ? "game-status" : 'hide'}>
                         <GameStatus
+                            activatedDuck={this.state.activatedDuck}
                             gameWon={this.state.gameWon}
                             gameLost={this.state.gameLost}
                             restartGame={this.restartGame}
